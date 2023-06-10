@@ -53,8 +53,8 @@ document.addEventListener('keydown', (event) => {
 
 const moveLeft = () => {
 	let pos = playerShip.offsetLeft;
-	if (pos > 15) {
-		pos = pos -= 30;
+	if (pos > 10) {
+		pos = pos -= 20;
 		playerShip.style.left = `${pos}px`;
 	}
 }
@@ -63,8 +63,8 @@ const moveLeft = () => {
 
 const moveRight = () => {
 	let pos = playerShip.offsetLeft;
-	if ((screenW - (pos + playerW)) > 30) {
-		pos = pos += 30;
+	if ((screenW - (pos + playerW)) > 40) {
+		pos = pos += 20;
 		playerShip.style.left = `${pos}px`;
 	}
 }

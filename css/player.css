@@ -7,6 +7,9 @@
   position: absolute;
   bottom: 5px;
   left: calc(50% - 65px);
+  -webkit-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 #player.skin-1 {
   background-image: url(../img/space-ship-1.png);
