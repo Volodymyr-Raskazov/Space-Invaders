@@ -44,10 +44,18 @@ screenW = floor10(screenW);
 gameBoard.style.width = `${screenW}px`;
 
 document.addEventListener('keydown', (event) => {
-	if (event.code == "ArrowLeft" || event.code == "KeyA") {
-		moveLeft();
-	} else if (event.code == "ArrowRight" || event.code == "KeyD") {
-		moveRight();
+	switch (event.code) {
+		case "Space":
+			shot();
+			break;
+		case "ArrowLeft":
+		case "KeyA":
+			moveLeft();
+			break;
+		case "ArrowRight":
+		case "KeyD":
+			moveRight();
+			break;
 	}
 });
 
@@ -59,7 +67,6 @@ const moveLeft = () => {
 	}
 }
 
-// pos < (screenW - 190)
 
 const moveRight = () => {
 	let pos = playerShip.offsetLeft;
@@ -68,3 +75,5 @@ const moveRight = () => {
 		playerShip.style.left = `${pos}px`;
 	}
 }
+
+const shot = () => { }
