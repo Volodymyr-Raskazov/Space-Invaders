@@ -1,0 +1,19 @@
+#player {
+	height: 135px;
+	width: 130px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: 50% 100%;
+	position: absolute;
+	bottom: 5px;
+	left: calc(50% - 65px);
+	&.skin-1 {
+		background-image: url(../img/space-ship-1.png);
+	}
+	&.skin-2 {
+		background-image: url(../img/space-ship-2.png);
+	}
+	&.skin-3 {
+		background-image: url(../img/space-ship-3.png);
+	}
+}
