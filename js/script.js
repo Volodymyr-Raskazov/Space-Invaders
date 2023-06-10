@@ -1,6 +1,6 @@
 /** ПЛАН РОЗРОБКИ */
 /**
- * 1. Зробити рух гравця по натисканню клавіш "вліво/вправо".
+ * 1. Зробити рух гравця по натисканню клавіш "вліво/вправо". done
  * 
  * 2. Зробити вибір космічного корабля гравця та запуск гри:
  * 	- свтворити вікно запуску;
@@ -31,30 +31,39 @@
 
 'use strict'
 
+
+let playerShip = document.getElementById('player');
+let gameBoard = document.querySelector('.container');
 let screenW = document.getElementById('app').offsetWidth;
-let player = document.getElementById('player');
-// player.style.left = `calc(${screenW}px / 2 - 47px)`;
+let playerW = player.offsetWidth;
 
-
-document.onclick = () => {
-	// moveLeft();
-	moveRight();
+const floor10 = (val) => {
+	return Math.floor(val / 10) * 10;
 }
 
+screenW = floor10(screenW);
+gameBoard.style.width = `${screenW}px`;
+
+document.addEventListener('keydown', (event) => {
+	if (event.code == "ArrowLeft" || event.code == "KeyA") {
+		moveLeft();
+	} else if (event.code == "ArrowRight" || event.code == "KeyD") {
+		moveRight();
+	}
+});
+
 const moveLeft = () => {
-	let pos = player.offsetLeft;
-	pos = pos -= 5;
-	player.style.left = `${pos}px`;
+	let pos = playerShip.offsetLeft;
+	if (pos > 45) {
+		pos = pos -= 50;
+		playerShip.style.left = `${pos}px`;
+	}
 }
 
 const moveRight = () => {
-	let pos = player.offsetLeft;
-	if (pos < screenW - 135) {
-		pos = pos += 4 5;
-		player.style.left = `${pos}px`;
+	let pos = playerShip.offsetLeft;
+	if (pos < (screenW - (playerW + playerW / 2))) {
+		pos = pos += 50;
+		playerShip.style.left = `${pos}px`;
 	}
-	// } else {
-	// 	pos = pos;
-	// }
-
 }
