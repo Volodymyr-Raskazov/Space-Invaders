@@ -31,11 +31,10 @@
 
 'use strict'
 
-
 let playerShip = document.getElementById('player');
 let gameBoard = document.querySelector('.container');
 let screenW = document.getElementById('app').offsetWidth;
-let playerW = player.offsetWidth;
+let playerW = document.getElementById('player').offsetWidth;
 
 const floor10 = (val) => {
 	return Math.floor(val / 10) * 10;
@@ -54,16 +53,18 @@ document.addEventListener('keydown', (event) => {
 
 const moveLeft = () => {
 	let pos = playerShip.offsetLeft;
-	if (pos > 45) {
-		pos = pos -= 50;
+	if (pos > 15) {
+		pos = pos -= 30;
 		playerShip.style.left = `${pos}px`;
 	}
 }
 
+// pos < (screenW - 190)
+
 const moveRight = () => {
 	let pos = playerShip.offsetLeft;
-	if (pos < (screenW - (playerW + playerW / 2))) {
-		pos = pos += 50;
+	if ((screenW - (pos + playerW)) > 30) {
+		pos = pos += 30;
 		playerShip.style.left = `${pos}px`;
 	}
 }
