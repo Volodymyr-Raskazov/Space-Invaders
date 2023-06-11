@@ -28,20 +28,21 @@
  * 	- розділення коду на декілька файлів;
  * 	...
  */
+let wrapper = document.querySelector('.container');
+let wrapperW = wrapper.offsetWidth;
 
-'use strict'
+let player = document.getElementById('player');
+let board = document.getElementById('app');
 
-let playerShip = document.getElementById('player');
-let gameBoard = document.querySelector('.container');
-let screenW = document.getElementById('app').offsetWidth;
-let playerW = document.getElementById('player').offsetWidth;
+let enemy = document.querySelector('.enemy');
+
+let skin = 'skin-1';
 
 const floor10 = (val) => {
 	return Math.floor(val / 10) * 10;
 }
-
-screenW = floor10(screenW);
-gameBoard.style.width = `${screenW}px`;
+wrapperW = floor10(wrapperW);
+wrapper.style.width = wrapperW + 'px';
 
 document.addEventListener('keydown', (event) => {
 	switch (event.code) {
@@ -60,20 +61,46 @@ document.addEventListener('keydown', (event) => {
 });
 
 const moveLeft = () => {
-	let pos = playerShip.offsetLeft;
-	if (pos > 10) {
-		pos = pos -= 20;
-		playerShip.style.left = `${pos}px`;
+	let pos = player.offsetLeft;
+	if (pos < 19) {
+		player.style.left = '0';
+	} else {
+		player.style.left = pos - 20 + 'px';
 	}
-}
 
+}
 
 const moveRight = () => {
-	let pos = playerShip.offsetLeft;
-	if ((screenW - (pos + playerW)) > 40) {
-		pos = pos += 20;
-		playerShip.style.left = `${pos}px`;
+	let boardW = board.offsetWidth;
+	let playerW = player.offsetWidth;
+	let pos = player.offsetLeft;
+	if ((pos + playerW + 19) > boardW) {
+		player.style.left = (boardW - playerW) + 'px';
+	} else {
+		player.style.left = pos + 20 + 'px';
 	}
 }
 
-const shot = () => { }
+const shot = () => {
+	let bullet = document.createElement('div');
+	bullet.className = `bullet ${skin}`;
+	bullet.style.left = (player.offsetLeft + player.offsetWidth / 2) - 8 + 'px';
+	board.appendChild(bullet);
+	let timerID = setInterval(() => {
+		isHit(bullet);
+		if (bullet.offsetTop < 0) {
+			bullet.remove();
+			clearInterval(timerID);
+		}
+		bullet.style.top = bullet.offsetTop - 10 + 'px';
+	}, 50);
+}
+
+const isHit = (bullet) => {
+	if (bullet.offsetTop > enemy.offsetTop
+		&& bullet.offsetTop < (enemy.offsetTop + enemy.offsetHeight)
+		&& bullet.offsetLeft > enemy.offsetLeft
+		&& bullet.offsetLeft < (enemy.offsetLeft + enemy.offsetWidth)) {
+		console.dir('hit the enemy');
+	}
+}
