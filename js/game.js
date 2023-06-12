@@ -34,8 +34,6 @@ let wrapperW = wrapper.offsetWidth;
 let player = document.getElementById('player');
 let board = document.getElementById('app');
 
-let enemy = document.querySelector('.enemy');
-
 let skin = 'skin-1';
 
 const floor10 = (val) => {
@@ -44,8 +42,8 @@ const floor10 = (val) => {
 wrapperW = floor10(wrapperW);
 wrapper.style.width = wrapperW + 'px';
 
-document.addEventListener('keydown', (event) => {
-	switch (event.code) {
+document.addEventListener('keydown', (ev) => {
+	switch (ev.code) {
 		case "Space":
 			shot();
 			break;
@@ -87,20 +85,33 @@ const shot = () => {
 	bullet.style.left = (player.offsetLeft + player.offsetWidth / 2) - 8 + 'px';
 	board.appendChild(bullet);
 	let timerID = setInterval(() => {
-		isHit(bullet);
-		if (bullet.offsetTop < 0) {
+		let hit = isHit(bullet);
+		if (hit || bullet.offsetTop < 0) {
 			bullet.remove();
 			clearInterval(timerID);
 		}
-		bullet.style.top = bullet.offsetTop - 10 + 'px';
+		bullet.style.top = bullet.offsetTop - 20 + 'px';
 	}, 50);
 }
 
 const isHit = (bullet) => {
-	if (bullet.offsetTop > enemy.offsetTop
-		&& bullet.offsetTop < (enemy.offsetTop + enemy.offsetHeight)
-		&& bullet.offsetLeft > enemy.offsetLeft
-		&& bullet.offsetLeft < (enemy.offsetLeft + enemy.offsetWidth)) {
-		console.dir('hit the enemy');
+	let enemy = document.querySelector('.enemy');
+	if (enemy != null && !enemy.classList.contains('boom')) {
+		let vHit = bullet.offsetTop > enemy.offsetTop && bullet.offsetTop < (enemy.offsetTop + enemy.offsetHeight);
+		let hHit = bullet.offsetLeft > enemy.offsetLeft && bullet.offsetLeft < (enemy.offsetLeft + enemy.offsetWidth);
+		if (vHit && hHit) {
+			enemy.className = 'enemy boom';
+			setTimeout(() => {
+				enemy.remove();
+			}, 600);
+			return true;
+		}
 	}
+	return false;
+}
+
+const random = (min, max) => {
+	// получить случайное число от (min-0.5) до (max+0.5)
+	let rand = min - 0.5 + Math.random() * (max - min + 1);
+	return Math.round(rand);
 }

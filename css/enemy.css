@@ -5,7 +5,7 @@
   background-size: contain;
   background-position: 50% 0;
   position: absolute;
-  top: 5px;
+  top: -115px;
   left: calc(50% - 50px);
   -webkit-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
@@ -19,4 +19,8 @@
 }
 .enemy.skin-3 {
   background-image: url(../img/enemy-3.png);
+}
+.enemy.boom {
+  background-image: url(../img/boom.gif);
+  background-position: center;
 }

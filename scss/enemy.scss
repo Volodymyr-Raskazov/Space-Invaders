@@ -5,7 +5,7 @@
 	background-size: contain;
 	background-position: 50% 0;
 	position: absolute;
-	top: 5px;
+	top: -115px;
 	left: calc(50% - 50px);
 	transition: all 0.3s ease-out;
 	&.skin-1 {
@@ -16,5 +16,9 @@
 	}
 	&.skin-3 {
 		background-image: url(../img/enemy-3.png);
+	}
+	&.boom {
+		background-image: url(../img/boom.gif);
+		background-position: center;
 	}
 }
