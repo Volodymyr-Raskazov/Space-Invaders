@@ -60,10 +60,10 @@ document.addEventListener('keydown', (ev) => {
 
 const moveLeft = () => {
 	let pos = player.offsetLeft;
-	if (pos < 19) {
+	if (pos < 29) {
 		player.style.left = '0';
 	} else {
-		player.style.left = pos - 20 + 'px';
+		player.style.left = pos - 30 + 'px';
 	}
 
 }
@@ -72,10 +72,10 @@ const moveRight = () => {
 	let boardW = board.offsetWidth;
 	let playerW = player.offsetWidth;
 	let pos = player.offsetLeft;
-	if ((pos + playerW + 19) > boardW) {
+	if ((pos + playerW + 29) > boardW) {
 		player.style.left = (boardW - playerW) + 'px';
 	} else {
-		player.style.left = pos + 20 + 'px';
+		player.style.left = pos + 30 + 'px';
 	}
 }
 
@@ -95,16 +95,17 @@ const shot = () => {
 }
 
 const isHit = (bullet) => {
-	let enemy = document.querySelector('.enemy');
-	if (enemy != null && !enemy.classList.contains('boom')) {
-		let vHit = bullet.offsetTop > enemy.offsetTop && bullet.offsetTop < (enemy.offsetTop + enemy.offsetHeight);
-		let hHit = bullet.offsetLeft > enemy.offsetLeft && bullet.offsetLeft < (enemy.offsetLeft + enemy.offsetWidth);
-		if (vHit && hHit) {
-			enemy.className = 'enemy boom';
-			setTimeout(() => {
-				enemy.remove();
-			}, 600);
-			return true;
+	let enemies = document.querySelectorAll('.enemy');
+	for (let i = 0; i < enemies.length; i++) {
+		enemy = enemies[i];
+		if (enemy != null && !enemy.classList.contains('boom')) {
+			let vHit = bullet.offsetTop > enemy.offsetTop && bullet.offsetTop < (enemy.offsetTop + enemy.offsetHeight);
+			let hHit = bullet.offsetLeft > enemy.offsetLeft && bullet.offsetLeft < (enemy.offsetLeft + enemy.offsetWidth);
+			if (vHit && hHit) {
+				enemy.className = 'enemy boom';
+				removeEnemy(enemy);
+				return true;
+			}
 		}
 	}
 	return false;

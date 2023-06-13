@@ -11,10 +11,16 @@ const createEnemy = () => {
 
 const moveEnemy = (enemy) => {
 	let timerID = setInterval(() => {
-		enemy.style.top = `${enemy.offsetTop + 10}px`;
+		enemy.style.top = `${enemy.offsetTop + 5}px`;
 		if (enemy.offsetTop > board.offsetHeight) {
 			enemy.remove();
 			clearInterval(timerID);
 		}
 	}, 50)
+}
+
+const removeEnemy = (enemy) => {
+	setTimeout(() => {
+		enemy.remove();
+	}, 600);
 }
