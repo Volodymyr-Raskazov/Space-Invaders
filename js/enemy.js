@@ -1,10 +1,23 @@
-let enemy = '';
+let enemy;
+let enemySkin = '';
 
 const createEnemy = () => {
-	let posEnemy = random(50, board.offsetWidth);
+	let n = random(1, 3);
+	switch (n) {
+		case 1:
+			enemySkin = 'skin-1';
+			break;
+		case 2:
+			enemySkin = 'skin-2';
+			break;
+		case 3:
+			enemySkin = 'skin-3';
+			break;
+	}
+	let enemyPosition = random(100, (board.offsetWidth - 100));
 	enemy = document.createElement('div');
-	enemy.className = 'enemy skin-1'
-	enemy.style.left = `${posEnemy - (enemy.offsetWidth + 50)}px`;
+	enemy.className = `enemy ${enemySkin}`;
+	enemy.style.left = `${enemyPosition}px`;
 	board.appendChild(enemy);
 	moveEnemy(enemy);
 }
@@ -16,7 +29,7 @@ const moveEnemy = (enemy) => {
 			enemy.remove();
 			clearInterval(timerID);
 		}
-	}, 50)
+	}, 50);
 }
 
 const removeEnemy = (enemy) => {

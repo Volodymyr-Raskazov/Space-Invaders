@@ -24,9 +24,110 @@ html {
 	width: 100%;
 }
 
-// #app img {
-// 	max-width: 150px;
-// 	display: inline-block;
-// 	max-height: 150px;
-// 	margin: 20px;
+/*===================
+	Player style
+===================*/
+#player {
+	height: 135px;
+	width: 130px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: 50% 100%;
+	position: absolute;
+	bottom: 5px;
+	left: calc(50% - 65px);
+	transition: all 0.3s ease-out;
+	&.skin-1 {
+		background-image: url(../img/space-ship-1.png);
+	}
+	&.skin-2 {
+		background-image: url(../img/space-ship-2.png);
+	}
+	&.skin-3 {
+		background-image: url(../img/space-ship-3.png);
+	}
+}
+
+.bullet {
+	position: absolute;
+	height: 32px;
+	width: 16px;
+	// height: 20px;
+	// width: 4px;
+	// top: 85%;
+	// left: calc(50% - 8px);
+	// left: calc(50% - 2px);
+	background-image: url(../img/bullet.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	// background-color: white;
+	// border-radius: 6px/10px;
+	// box-shadow: 0 0 10px, 0 0 2px inset;
+	// animation: glow 1.5s linear infinite;
+	&.skin-1 {
+		bottom: 110px;
+	}
+	&.skin-2 {
+		bottom: 145px;
+	}
+	&.skin-3 {
+		bottom: 115px;
+	}
+}
+
+// @keyframes glow {
+// 	from {
+// 		color: lime;
+// 		box-shadow: 0 0 9px lime;
+// 	}
+// 	50% {
+// 		color: lime;
+// 		box-shadow: 0 0 18px lime;
+// 	}
+// 	to {
+// 		color: lime;
+// 		box-shadow: 0 0 9px lime;
+// 	}
 // }
+
+/*================
+	Enemy style
+================*/
+.enemy {
+	height: 100px;
+	width: 100px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: 50% 0;
+	position: absolute;
+	top: -115px;
+	transition: all 0.3s ease-out;
+	&.skin-1 {
+		background-image: url(../img/enemy-1.png);
+	}
+	&.skin-2 {
+		background-image: url(../img/enemy-2.png);
+	}
+	&.skin-3 {
+		background-image: url(../img/enemy-3.png);
+	}
+	&.boom {
+		background-image: url(../img/boom.gif);
+		background-position: center;
+	}
+}
+
+.asteroid {
+	height: 65px;
+	width: 100px;
+	position: absolute;
+	top: -115px;
+	background-image: url(../img/asteroid1.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	transition: all 0.3s ease-out;
+	&.boom {
+		background-image: url(../img/boom.gif);
+		background-position: center;
+	}
+}

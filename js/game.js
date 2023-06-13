@@ -102,8 +102,23 @@ const isHit = (bullet) => {
 			let vHit = bullet.offsetTop > enemy.offsetTop && bullet.offsetTop < (enemy.offsetTop + enemy.offsetHeight);
 			let hHit = bullet.offsetLeft > enemy.offsetLeft && bullet.offsetLeft < (enemy.offsetLeft + enemy.offsetWidth);
 			if (vHit && hHit) {
-				enemy.className = 'enemy boom';
+				enemy.classList.add('boom');
 				removeEnemy(enemy);
+				createEnemy();
+				return true;
+			}
+		}
+	}
+	let asters = document.querySelectorAll('.asteroid');
+	for (let i = 0; i < asters.length; i++) {
+		aster = asters[i];
+		if (aster != null && !aster.classList.contains('boom')) {
+			let vHit = bullet.offsetTop > aster.offsetTop && bullet.offsetTop < (aster.offsetTop + aster.offsetHeight);
+			let hHit = bullet.offsetLeft > aster.offsetLeft && bullet.offsetLeft < (aster.offsetLeft + aster.offsetWidth);
+			if (vHit && hHit) {
+				aster.classList.add('boom');
+				removeAster(aster);
+				createAster();
 				return true;
 			}
 		}
@@ -112,7 +127,6 @@ const isHit = (bullet) => {
 }
 
 const random = (min, max) => {
-	// получить случайное число от (min-0.5) до (max+0.5)
 	let rand = min - 0.5 + Math.random() * (max - min + 1);
 	return Math.round(rand);
 }

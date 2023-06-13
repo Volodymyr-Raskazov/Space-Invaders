@@ -112,3 +112,93 @@ html {
   height: 100%;
   width: 100%;
 }
+
+/*===================
+	Player style
+===================*/
+#player {
+  height: 135px;
+  width: 130px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50% 100%;
+  position: absolute;
+  bottom: 5px;
+  left: calc(50% - 65px);
+  -webkit-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+#player.skin-1 {
+  background-image: url(../img/space-ship-1.png);
+}
+#player.skin-2 {
+  background-image: url(../img/space-ship-2.png);
+}
+#player.skin-3 {
+  background-image: url(../img/space-ship-3.png);
+}
+
+.bullet {
+  position: absolute;
+  height: 32px;
+  width: 16px;
+  background-image: url(../img/bullet.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.bullet.skin-1 {
+  bottom: 110px;
+}
+.bullet.skin-2 {
+  bottom: 145px;
+}
+.bullet.skin-3 {
+  bottom: 115px;
+}
+
+/*================
+	Enemy style
+================*/
+.enemy {
+  height: 100px;
+  width: 100px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50% 0;
+  position: absolute;
+  top: -115px;
+  -webkit-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.enemy.skin-1 {
+  background-image: url(../img/enemy-1.png);
+}
+.enemy.skin-2 {
+  background-image: url(../img/enemy-2.png);
+}
+.enemy.skin-3 {
+  background-image: url(../img/enemy-3.png);
+}
+.enemy.boom {
+  background-image: url(../img/boom.gif);
+  background-position: center;
+}
+
+.asteroid {
+  height: 65px;
+  width: 100px;
+  position: absolute;
+  top: -115px;
+  background-image: url(../img/asteroid1.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.asteroid.boom {
+  background-image: url(../img/boom.gif);
+  background-position: center;
+}
