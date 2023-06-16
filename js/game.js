@@ -82,7 +82,7 @@ const moveRight = () => {
 const shot = () => {
 	let bullet = document.createElement('div');
 	bullet.className = `bullet ${skin}`;
-	bullet.style.left = (player.offsetLeft + player.offsetWidth / 2) - 8 + 'px';
+	bullet.style.left = (player.offsetLeft + player.offsetWidth / 2) - 2 + 'px';
 	board.appendChild(bullet);
 	let timerID = setInterval(() => {
 		let hit = isHit(bullet);
@@ -95,35 +95,33 @@ const shot = () => {
 }
 
 const isHit = (bullet) => {
-	let enemies = document.querySelectorAll('.enemy');
-	for (let i = 0; i < enemies.length; i++) {
-		enemy = enemies[i];
-		if (enemy != null && !enemy.classList.contains('boom')) {
-			let vHit = bullet.offsetTop > enemy.offsetTop && bullet.offsetTop < (enemy.offsetTop + enemy.offsetHeight);
-			let hHit = bullet.offsetLeft > enemy.offsetLeft && bullet.offsetLeft < (enemy.offsetLeft + enemy.offsetWidth);
+	let targets = document.querySelectorAll('.enemy, .asteroid');
+	let target;
+	for (let i = 0; i < targets.length; i++) {
+		target = targets[i];
+		if (target != null && !target.classList.contains('boom')) {
+			let vHit = bullet.offsetTop > target.offsetTop && bullet.offsetTop < (target.offsetTop + target.offsetHeight);
+			let hHit = bullet.offsetLeft > target.offsetLeft && bullet.offsetLeft < (target.offsetLeft + target.offsetWidth);
 			if (vHit && hHit) {
-				enemy.classList.add('boom');
-				removeEnemy(enemy);
-				createEnemy();
-				return true;
-			}
-		}
-	}
-	let asters = document.querySelectorAll('.asteroid');
-	for (let i = 0; i < asters.length; i++) {
-		aster = asters[i];
-		if (aster != null && !aster.classList.contains('boom')) {
-			let vHit = bullet.offsetTop > aster.offsetTop && bullet.offsetTop < (aster.offsetTop + aster.offsetHeight);
-			let hHit = bullet.offsetLeft > aster.offsetLeft && bullet.offsetLeft < (aster.offsetLeft + aster.offsetWidth);
-			if (vHit && hHit) {
-				aster.classList.add('boom');
-				removeAster(aster);
-				createAster();
+				target.classList.add('boom');
+				if (target.classList.contains('enemy')) {
+					removeTarget(target);
+					createEnemy();
+				} else {
+					removeTarget(target);
+					createAster();
+				}
 				return true;
 			}
 		}
 	}
 	return false;
+}
+
+const removeTarget = (target) => {
+	setTimeout(() => {
+		target.remove();
+	}, 600);
 }
 
 const random = (min, max) => {

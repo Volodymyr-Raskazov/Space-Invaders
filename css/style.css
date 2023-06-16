@@ -141,22 +141,60 @@ html {
 
 .bullet {
   position: absolute;
-  height: 32px;
-  width: 16px;
-  background-image: url(../img/bullet.png);
-  background-repeat: no-repeat;
-  background-size: contain;
+  height: 30px;
+  width: 4px;
+  background-color: white;
+  border-radius: 6px/10px;
+  -webkit-box-shadow: 0 0 10px, 0 0 2px inset;
+          box-shadow: 0 0 10px, 0 0 2px inset;
+  -webkit-animation: glow 1.5s linear infinite;
+          animation: glow 1.5s linear infinite;
 }
 .bullet.skin-1 {
-  bottom: 110px;
+  bottom: 125px;
 }
 .bullet.skin-2 {
   bottom: 145px;
 }
 .bullet.skin-3 {
-  bottom: 115px;
+  bottom: 125px;
 }
 
+@-webkit-keyframes glow {
+  from {
+    color: lime;
+    -webkit-box-shadow: 0 0 9px lime;
+            box-shadow: 0 0 9px lime;
+  }
+  50% {
+    color: lime;
+    -webkit-box-shadow: 0 0 18px lime;
+            box-shadow: 0 0 18px lime;
+  }
+  to {
+    color: lime;
+    -webkit-box-shadow: 0 0 9px lime;
+            box-shadow: 0 0 9px lime;
+  }
+}
+
+@keyframes glow {
+  from {
+    color: lime;
+    -webkit-box-shadow: 0 0 9px lime;
+            box-shadow: 0 0 9px lime;
+  }
+  50% {
+    color: lime;
+    -webkit-box-shadow: 0 0 18px lime;
+            box-shadow: 0 0 18px lime;
+  }
+  to {
+    color: lime;
+    -webkit-box-shadow: 0 0 9px lime;
+            box-shadow: 0 0 9px lime;
+  }
+}
 /*================
 	Enemy style
 ================*/

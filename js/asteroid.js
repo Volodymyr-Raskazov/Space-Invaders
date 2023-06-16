@@ -22,8 +22,8 @@ const moveAster = (aster) => {
 	}, 50);
 }
 
-const removeAster = (aster) => {
-	setTimeout(() => {
-		aster.remove();
-	}, 600);
-}
+// const removeAster = (aster) => {
+// 	setTimeout(() => {
+// 		aster.remove();
+// 	}, 600);
+// }

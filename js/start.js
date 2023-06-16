@@ -1,3 +1,3 @@
-// createEnemy();
+createEnemy();
 
-// createAster();
+createAster();

@@ -1,7 +1,7 @@
 let enemy;
-let enemySkin = '';
+let enemySkin;
 
-const createEnemy = () => {
+const selSkin = () => {
 	let n = random(1, 3);
 	switch (n) {
 		case 1:
@@ -14,7 +14,12 @@ const createEnemy = () => {
 			enemySkin = 'skin-3';
 			break;
 	}
+	return enemySkin;
+}
+
+const createEnemy = () => {
 	let enemyPosition = random(100, (board.offsetWidth - 100));
+	selSkin();
 	enemy = document.createElement('div');
 	enemy.className = `enemy ${enemySkin}`;
 	enemy.style.left = `${enemyPosition}px`;
@@ -32,8 +37,8 @@ const moveEnemy = (enemy) => {
 	}, 50);
 }
 
-const removeEnemy = (enemy) => {
-	setTimeout(() => {
-		enemy.remove();
-	}, 600);
-}
+// const removeEnemy = (enemy) => {
+// 	setTimeout(() => {
+// 		enemy.remove();
+// 	}, 600);
+// }
