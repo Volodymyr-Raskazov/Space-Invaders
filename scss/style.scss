@@ -142,17 +142,20 @@ html {
 
 .start-window {
 	width: 500px;
-	padding: 30px 20px;
+	padding: 30px 30px;
 	border-radius: 10px;
-	margin: 10% auto;
+	margin: 5% auto;
 	background-color: #2d2d2d;
-	font-family: "Cosmos", sans-serif;
+	font-family: "AV Cosmos", sans-serif;
 	text-align: center;
 	box-shadow: rgba(71, 21, 117, 0.56) 0px 22px 70px 4px;
 
 	&__title {
+		background: #272822;
+		border: 2px solid #444;
+		padding: 1rem 3rem;
 		color: #202020;
-		font-size: 2rem;
+		font-size: 2.5rem;
 		text-align: center;
 		justify-content: space-between;
 		// background-color: #2d2d2d;
@@ -167,15 +170,16 @@ html {
 		align-items: stretch;
 		justify-content: space-between;
 		input[type="radio"]:checked + label {
-			border: 5px solid #8a2be2;
+			border: 2px solid #444;
+			background: #272822;
 		}
 	}
 
 	&__ship {
 		flex: 0 1 auto;
 		padding: 20px 10px;
-		border: 5px solid transparent;
-		border-radius: 5px;
+		border: 2px solid transparent;
+		// border-radius: 5px;
 		cursor: pointer;
 		img {
 			width: 100%;
@@ -193,12 +197,13 @@ html {
 		position: relative;
 		background: #444;
 		color: #202020;
+		// font-family: "Cosmos", sans-serif;
 		text-decoration: none;
 		text-transform: uppercase;
 		border: none;
 		letter-spacing: 0.1em;
 		text-shadow: -1px -1px 1px #111, 2px 2px 1px #363636;
-		font-size: 1rem;
+		font-size: 2rem;
 		padding: 1rem 3rem;
 		transition: 0.2s;
 		&:hover {

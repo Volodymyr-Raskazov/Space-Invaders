@@ -211,18 +211,21 @@ html {
 ========================*/
 .start-window {
   width: 500px;
-  padding: 30px 20px;
+  padding: 30px 30px;
   border-radius: 10px;
-  margin: 10% auto;
+  margin: 5% auto;
   background-color: #2d2d2d;
-  font-family: "Cosmos", sans-serif;
+  font-family: "AV Cosmos", sans-serif;
   text-align: center;
   -webkit-box-shadow: rgba(71, 21, 117, 0.56) 0px 22px 70px 4px;
           box-shadow: rgba(71, 21, 117, 0.56) 0px 22px 70px 4px;
 }
 .start-window__title {
+  background: #272822;
+  border: 2px solid #444;
+  padding: 1rem 3rem;
   color: #202020;
-  font-size: 2rem;
+  font-size: 2.5rem;
   text-align: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -244,15 +247,15 @@ html {
           justify-content: space-between;
 }
 .start-window__ships input[type=radio]:checked + label {
-  border: 5px solid #8a2be2;
+  border: 2px solid #444;
+  background: #272822;
 }
 .start-window__ship {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 auto;
           flex: 0 1 auto;
   padding: 20px 10px;
-  border: 5px solid transparent;
-  border-radius: 5px;
+  border: 2px solid transparent;
   cursor: pointer;
 }
 .start-window__ship img {
@@ -275,7 +278,7 @@ html {
   border: none;
   letter-spacing: 0.1em;
   text-shadow: -1px -1px 1px #111, 2px 2px 1px #363636;
-  font-size: 1rem;
+  font-size: 2rem;
   padding: 1rem 3rem;
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
