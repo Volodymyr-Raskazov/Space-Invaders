@@ -211,7 +211,7 @@ html {
 ========================*/
 .start-window {
   width: 500px;
-  padding: 20px;
+  padding: 30px 20px;
   border-radius: 10px;
   margin: 10% auto;
   background-color: #2d2d2d;
@@ -227,7 +227,6 @@ html {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background-color: #2d2d2d;
   letter-spacing: 0.1em;
   text-shadow: -1px -1px 1px #111, 2px 2px 1px #363636;
 }
@@ -236,7 +235,7 @@ html {
   display: -ms-flexbox;
   display: flex;
   gap: 10px;
-  padding: 20px 0;
+  padding: 30px 0;
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
@@ -254,6 +253,7 @@ html {
   padding: 20px 10px;
   border: 5px solid transparent;
   border-radius: 5px;
+  cursor: pointer;
 }
 .start-window__ship img {
   width: 100%;
