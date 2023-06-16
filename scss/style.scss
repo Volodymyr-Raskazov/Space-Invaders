@@ -142,24 +142,50 @@ html {
 
 .start-window {
 	width: 500px;
-	padding: 10px;
+	padding: 20px;
+	border-radius: 10px;
 	margin: 10% auto;
 	background-color: #2d2d2d;
 	font-family: "Cosmos", sans-serif;
 	text-align: center;
+	box-shadow: rgba(71, 21, 117, 0.56) 0px 22px 70px 4px;
+
 	&__title {
 		color: #202020;
 		font-size: 2rem;
 		text-align: center;
+		justify-content: space-between;
 		background-color: #2d2d2d;
 		letter-spacing: 0.1em;
 		text-shadow: -1px -1px 1px #111, 2px 2px 1px #363636;
 	}
 
 	&__ships {
+		display: flex;
+		gap: 10px;
+		padding: 20px 0;
+		align-items: stretch;
+		justify-content: space-between;
+		input[type="radio"]:checked + label {
+			border: 5px solid #8a2be2;
+		}
 	}
 
 	&__ship {
+		flex: 0 1 auto;
+		padding: 20px 10px;
+		border: 5px solid transparent;
+		border-radius: 5px;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			object-position: center;
+		}
+	}
+
+	& input {
+		display: none;
 	}
 
 	&__btn {
@@ -209,13 +235,11 @@ html {
 			background: #272822;
 			transition: 0.2s;
 		}
-
 		&:hover i::before {
 			width: 15px;
 			left: 20%;
 			animation: move 3s infinite;
 		}
-
 		& i::after {
 			content: "";
 			position: absolute;
@@ -227,7 +251,6 @@ html {
 			background: #272822;
 			transition: 0.2s;
 		}
-
 		&:hover i::after {
 			width: 15px;
 			left: 80%;
@@ -235,6 +258,7 @@ html {
 		}
 	}
 }
+
 @keyframes move {
 	0% {
 		transform: translateX(0);
