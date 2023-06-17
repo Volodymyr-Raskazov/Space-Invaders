@@ -10,39 +10,42 @@
 	<link href="https://fonts.cdnfonts.com/css/cosmos" rel="stylesheet">
 	<link rel="stylesheet" href="css/stars.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/start.css">
 </head>
 
 <body>
-	<!-- <div id='stars-1'></div>
+	<div id='stars-1'></div>
 	<div id='stars-2'></div>
-	<div id='stars-3'></div> -->
+	<div id='stars-3'></div>
 
 	<div class="container">
 		<div id="app">
-			<!-- <div class="start-window">
+			<div class="start-window">
 				<h1 class="start-window__title">Choose The Spaceship</h1>
 				<div class="start-window__ships">
-					<input type="radio" id="skin-1" name="skin" checked>
+					<input type="radio" id="skin-1" name="skin" value="skin-1" checked>
 					<label class="start-window__ship skin-1" for="skin-1">
 						<img src="img/space-ship-1.png" alt="space-ship-1">
 					</label>
-					<input type="radio" id="skin-2" name="skin">
+					<input type="radio" id="skin-2" name="skin" value="skin-2">
 					<label class="start-window__ship skin-2" for="skin-2">
 						<img src="img/space-ship-2.png" alt="space-ship-2">
 					</label>
-					<input type="radio" id="skin-3" name="skin">
+					<input type="radio" id="skin-3" name="skin" value="skin-3">
 					<label class="start-window__ship skin-3" for="skin-3">
 						<img src="img/space-ship-3.png" alt="space-ship-3">
 					</label>
 				</div>
-				<button class="start-window__btn" style="--clr:#8A2BE2"><span>Start Game</span><i></i></button>
-			</div> -->
-			<div id="player" class="skin-1"></div>
-			<!-- <div class="bullet skin-1"></div> -->
+				<button id="btnStartGame" class="start-window__btn" style="--clr:#8A2BE2"><span>Start Game</span><i></i></button>
+			</div>
+			<!-- <div id="player" class="skin-1"></div>
+			<div class="bullet skin-1 left"></div>
+			<div class="bullet skin-1 right"></div> -->
 			<!-- <div class="enemy skin-1"></div> -->
 		</div>
 	</div>
-	<script src="js/game.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/player.js"></script>
 	<script src="js/enemy.js"></script>
 	<script src="js/asteroid.js"></script>
 	<script src="js/start.js"></script>

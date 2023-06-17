@@ -1,7 +1,7 @@
 let enemy;
 let enemySkin;
 
-const selSkin = () => {
+const selEnemySkin = () => {
 	let n = random(1, 3);
 	switch (n) {
 		case 1:
@@ -19,7 +19,7 @@ const selSkin = () => {
 
 const createEnemy = () => {
 	let enemyPosition = random(100, (board.offsetWidth - 100));
-	selSkin();
+	selEnemySkin();
 	enemy = document.createElement('div');
 	enemy.className = `enemy ${enemySkin}`;
 	enemy.style.left = `${enemyPosition}px`;

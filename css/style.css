@@ -106,16 +106,15 @@ html {
 }
 
 #app {
+  width: 100%;
   min-height: 100%;
   position: relative;
   z-index: 9999;
-  height: 100%;
-  width: 100%;
 }
 
-/*===================
-	Player style
-===================*/
+/*==================
+|   Player style   |
+==================*/
 #player {
   height: 135px;
   width: 130px;
@@ -139,9 +138,12 @@ html {
   background-image: url(../img/space-ship-3.png);
 }
 
+/*==================
+|   Bullet style   |
+==================*/
 .bullet {
   position: absolute;
-  height: 30px;
+  height: 25px;
   width: 4px;
   background-color: white;
   border-radius: 6px/10px;
@@ -151,53 +153,53 @@ html {
           animation: glow 1.5s linear infinite;
 }
 .bullet.skin-1 {
-  bottom: 125px;
+  bottom: 135px;
 }
 .bullet.skin-2 {
-  bottom: 145px;
+  bottom: 125px;
 }
 .bullet.skin-3 {
-  bottom: 125px;
+  bottom: 120px;
 }
 
 @-webkit-keyframes glow {
   from {
-    color: lime;
-    -webkit-box-shadow: 0 0 9px lime;
-            box-shadow: 0 0 9px lime;
+    color: violet;
+    -webkit-box-shadow: 0 0 9px violet;
+            box-shadow: 0 0 9px violet;
   }
   50% {
-    color: lime;
-    -webkit-box-shadow: 0 0 18px lime;
-            box-shadow: 0 0 18px lime;
+    color: violet;
+    -webkit-box-shadow: 0 0 18px violet;
+            box-shadow: 0 0 18px violet;
   }
   to {
-    color: lime;
-    -webkit-box-shadow: 0 0 9px lime;
-            box-shadow: 0 0 9px lime;
+    color: violet;
+    -webkit-box-shadow: 0 0 9px violet;
+            box-shadow: 0 0 9px violet;
   }
 }
 
 @keyframes glow {
   from {
-    color: lime;
-    -webkit-box-shadow: 0 0 9px lime;
-            box-shadow: 0 0 9px lime;
+    color: violet;
+    -webkit-box-shadow: 0 0 9px violet;
+            box-shadow: 0 0 9px violet;
   }
   50% {
-    color: lime;
-    -webkit-box-shadow: 0 0 18px lime;
-            box-shadow: 0 0 18px lime;
+    color: violet;
+    -webkit-box-shadow: 0 0 18px violet;
+            box-shadow: 0 0 18px violet;
   }
   to {
-    color: lime;
-    -webkit-box-shadow: 0 0 9px lime;
-            box-shadow: 0 0 9px lime;
+    color: violet;
+    -webkit-box-shadow: 0 0 9px violet;
+            box-shadow: 0 0 9px violet;
   }
 }
-/*================
-	Enemy style
-================*/
+/*=================
+|   Enemy style   |
+=================*/
 .enemy {
   height: 100px;
   width: 100px;
@@ -225,7 +227,7 @@ html {
 }
 
 /*====================
-	Asteroid style
+|   Asteroid style   |
 ====================*/
 .asteroid {
   height: 65px;
@@ -242,204 +244,4 @@ html {
 .asteroid.boom {
   background-image: url(../img/boom.gif);
   background-position: center;
-}
-
-/*========================
-	Start window style
-========================*/
-.start-window {
-  width: 500px;
-  padding: 30px 30px;
-  border-radius: 10px;
-  margin: 5% auto;
-  background-color: #2d2d2d;
-  font-family: "AV Cosmos", sans-serif;
-  text-align: center;
-  -webkit-box-shadow: rgba(71, 21, 117, 0.56) 0px 22px 70px 4px;
-          box-shadow: rgba(71, 21, 117, 0.56) 0px 22px 70px 4px;
-}
-.start-window__title {
-  background: #272822;
-  border: 2px solid #444;
-  padding: 1rem 3rem;
-  color: #202020;
-  font-size: 2.5rem;
-  text-align: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  letter-spacing: 0.1em;
-  text-shadow: -1px -1px 1px #111, 2px 2px 1px #363636;
-}
-.start-window__ships {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 10px;
-  padding: 30px 0;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-.start-window__ships input[type=radio]:checked + label {
-  border: 2px solid #444;
-  background: #272822;
-}
-.start-window__ship {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 auto;
-          flex: 0 1 auto;
-  padding: 20px 10px;
-  border: 2px solid transparent;
-  cursor: pointer;
-}
-.start-window__ship img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
-}
-.start-window input {
-  display: none;
-}
-.start-window__btn {
-  position: relative;
-  background: #444;
-  color: #202020;
-  text-decoration: none;
-  text-transform: uppercase;
-  border: none;
-  letter-spacing: 0.1em;
-  text-shadow: -1px -1px 1px #111, 2px 2px 1px #363636;
-  font-size: 2rem;
-  padding: 1rem 3rem;
-  -webkit-transition: 0.2s;
-  -o-transition: 0.2s;
-  transition: 0.2s;
-}
-.start-window__btn:hover {
-  letter-spacing: 0.2rem;
-  padding: 1.1rem 3.1rem;
-  background: var(--clr);
-  color: var(--clr);
-  text-shadow: -1px -1px 1px #140621, 2px 2px 1px #471575;
-  /* box-shadow: 0 0 35px var(--clr); */
-  -webkit-animation: box 3s infinite;
-          animation: box 3s infinite;
-}
-.start-window__btn::before {
-  content: "";
-  position: absolute;
-  inset: 2px;
-  background: #272822;
-}
-.start-window__btn span {
-  position: relative;
-  z-index: 1;
-}
-.start-window__btn i {
-  position: absolute;
-  inset: 0;
-  display: block;
-}
-.start-window__btn i::before {
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 2px;
-  left: 80%;
-  top: -2px;
-  border: 2px solid var(--clr);
-  background: #272822;
-  -webkit-transition: 0.2s;
-  -o-transition: 0.2s;
-  transition: 0.2s;
-}
-.start-window__btn:hover i::before {
-  width: 15px;
-  left: 20%;
-  -webkit-animation: move 3s infinite;
-          animation: move 3s infinite;
-}
-.start-window__btn i::after {
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 2px;
-  left: 20%;
-  bottom: -2px;
-  border: 2px solid var(--clr);
-  background: #272822;
-  -webkit-transition: 0.2s;
-  -o-transition: 0.2s;
-  transition: 0.2s;
-}
-.start-window__btn:hover i::after {
-  width: 15px;
-  left: 80%;
-  -webkit-animation: move 3s infinite;
-          animation: move 3s infinite;
-}
-
-@-webkit-keyframes move {
-  0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-  50% {
-    -webkit-transform: translateX(5px);
-            transform: translateX(5px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-
-@keyframes move {
-  0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-  50% {
-    -webkit-transform: translateX(5px);
-            transform: translateX(5px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-@-webkit-keyframes box {
-  0% {
-    -webkit-box-shadow: #27272c;
-            box-shadow: #27272c;
-  }
-  50% {
-    -webkit-box-shadow: 0 0 25px var(--clr);
-            box-shadow: 0 0 25px var(--clr);
-  }
-  100% {
-    -webkit-box-shadow: #27272c;
-            box-shadow: #27272c;
-  }
-}
-@keyframes box {
-  0% {
-    -webkit-box-shadow: #27272c;
-            box-shadow: #27272c;
-  }
-  50% {
-    -webkit-box-shadow: 0 0 25px var(--clr);
-            box-shadow: 0 0 25px var(--clr);
-  }
-  100% {
-    -webkit-box-shadow: #27272c;
-            box-shadow: #27272c;
-  }
 }
