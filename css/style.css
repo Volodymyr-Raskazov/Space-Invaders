@@ -109,7 +109,7 @@ html {
   width: 100%;
   min-height: 100%;
   position: relative;
-  z-index: 9999;
+  z-index: 9998;
 }
 
 /*==================
@@ -244,4 +244,43 @@ html {
 .asteroid.boom {
   background-image: url(../img/boom.gif);
   background-position: center;
+}
+
+/*===================
+|   Options style   |
+===================*/
+.game-options {
+  position: absolute;
+  z-index: 9999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  max-height: 40px;
+  visibility: hidden;
+}
+.game-options > * {
+  border: #fff 1px solid;
+  color: #fff;
+}
+.game-options__lifes {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+.game-options__score {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+.game-options__sound {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  background-image: url(../img/svg/sound-on-1.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }

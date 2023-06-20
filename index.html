@@ -14,12 +14,21 @@
 </head>
 
 <body>
-	<div id='stars-1'></div>
+	<!-- <div id='stars-1'></div>
 	<div id='stars-2'></div>
-	<div id='stars-3'></div>
+	<div id='stars-3'></div> -->
+
+	<audio id="backgroundSound" loop>
+		<source src="sound/background.mp3" type="audio/mpeg">
+	</audio>
 
 	<div class="container">
 		<div id="app">
+			<div class="game-options">
+				<div class="game-options__lifes" id="lifes">lifes</div>
+				<div class="game-options__score" id="score">score</div>
+				<button class="game-options__sound" id="soundControl"></button>
+			</div>
 			<div class="start-window">
 				<h1 class="start-window__title">Choose The Spaceship</h1>
 				<div class="start-window__ships">
@@ -48,6 +57,7 @@
 	<script src="js/player.js"></script>
 	<script src="js/enemy.js"></script>
 	<script src="js/asteroid.js"></script>
+	<script src="js/audio.js"></script>
 	<script src="js/start.js"></script>
 
 </body>

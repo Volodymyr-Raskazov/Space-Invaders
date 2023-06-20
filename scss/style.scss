@@ -20,7 +20,7 @@ html {
 	width: 100%;
 	min-height: 100%;
 	position: relative;
-	z-index: 9999;
+	z-index: 9998;
 	// height: 100%;
 }
 
@@ -136,5 +136,39 @@ html {
 	&.boom {
 		background-image: url(../img/boom.gif);
 		background-position: center;
+	}
+}
+
+/*===================
+|   Options style   |
+===================*/
+.game-options {
+	position: absolute;
+	z-index: 9999;
+	display: flex;
+	width: 100%;
+	max-height: 40px;
+	visibility: hidden;
+	> * {
+		border: #fff 1px solid;
+		color: #fff;
+	}
+
+	&__lifes {
+		flex: 1 1 auto;
+	}
+
+	&__score {
+		flex: 0 0 auto;
+	}
+
+	&__sound {
+		flex: 0 0 auto;
+		width: 40px;
+		height: 40px;
+		background-image: url(../img/svg/sound-on-1.svg);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
 	}
 }

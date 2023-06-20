@@ -16,14 +16,15 @@ const moveAster = (aster) => {
 		aster.style.transform = `rotate(${rotation}deg)`;
 		aster.style.top = `${aster.offsetTop + 5}px`;
 		if (aster.offsetTop > board.offsetHeight) {
-			aster.remove();
+			removeAster(aster);
 			clearInterval(timerID);
 		}
 	}, 50);
 }
 
-// const removeAster = (aster) => {
-// 	setTimeout(() => {
-// 		aster.remove();
-// 	}, 600);
-// }
+const removeAster = (aster) => {
+	setTimeout(() => {
+		aster.remove();
+		createAster();
+	}, 600);
+}
