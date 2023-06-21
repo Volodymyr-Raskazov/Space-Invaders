@@ -1,7 +1,8 @@
 let backgroundSound = document.getElementById('backgroundSound');
 backgroundSound.currentTime = 10;
-
 let soundControl = document.getElementById('soundControl');
+let shotSound = document.getElementById('shotSound');
+let boomSound = document.getElementById('boomSound');
 
 soundControl.addEventListener('click', () => {
 	if (backgroundSound.paused == false) {

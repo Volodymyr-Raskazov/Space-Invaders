@@ -58,7 +58,9 @@ const shot = () => {
 	bulletRight.style.left = (player.offsetLeft + player.offsetWidth / 2) + 18 + 'px';
 	if (playerSkin == 'skin-1') {
 		board.appendChild(bullet);
+		shotSound.play();
 	} else {
+		shotSound.play();
 		board.appendChild(bulletLeft);
 		board.appendChild(bulletRight);
 	}
@@ -91,9 +93,11 @@ const isHit = (bullet, bulletLeft, bulletRight) => {
 			if (vHit && hHit || vHitLeft && hHitLeft || vHitRight && hHitRight) {
 				target.classList.add('boom');
 				if (target.classList.contains('enemy')) {
+					boomSound.play();
 					removeTarget(target);
 					createEnemy();
 				} else {
+					boomSound.play();
 					removeTarget(target);
 					createAster();
 				}
