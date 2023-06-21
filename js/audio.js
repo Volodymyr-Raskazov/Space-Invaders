@@ -1,16 +1,23 @@
 let backgroundSound = document.getElementById('backgroundSound');
-backgroundSound.currentTime = 10;
-let soundControl = document.getElementById('soundControl');
+backgroundSound.currentTime = 15;
+let soundControl = document.querySelector('.game-options__sound')
+let soundOn = document.getElementById('soundOn');
+let soundOff = document.getElementById('soundOff');
+let muted;
 // let shotSound = document.getElementById('shotSound');
 // let boomSound = document.getElementById('boomSound');
 
 soundControl.addEventListener('click', () => {
 	if (backgroundSound.paused == false) {
 		backgroundSound.pause();
-		soundControl.style.backgroundImage = 'url(img/svg/sound-off-1.svg)';
+		soundOff.classList.remove('hiden');
+		soundOn.classList.add('hiden');
+		muted = true;
 	} else {
 		backgroundSound.play();
-		soundControl.style.backgroundImage = 'url(img/svg/sound-on-1.svg)';
+		soundOn.classList.remove('hiden');
+		soundOff.classList.add('hiden');
+		muted = false;
 	}
 });
 
@@ -20,12 +27,16 @@ const bgSound = () => {
 }
 
 const shotSound = () => {
-	let shotS = new Audio('sound/shot.mp3')
-	shotS.play();
+	let sound = new Audio('sound/shot.mp3');
+	sound.volume = 0.2;
+	sound.muted = muted;
+	sound.play();
 }
 
 const boomSound = () => {
-	let boomS = new Audio('sound/boom.mp3')
-	boomS.play();
+	let sound = new Audio('sound/boom.mp3');
+	sound.volume = 0.2;
+	sound.muted = muted;
+	sound.play();
 }
 // console.dir(backgroundSound);
