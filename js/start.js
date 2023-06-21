@@ -9,7 +9,7 @@ btnStartGame.addEventListener('click', () => {
 	let startWindow = document.querySelector('.start-window');
 	playerSkin = document.querySelector('.start-window__ships input[type=radio]:checked').value;
 	createPlayer(playerSkin);
-	backgroundSound.play();
+	bgSound();
 	createEnemy();
 	createAster();
 	startWindow.style.display = 'none';
