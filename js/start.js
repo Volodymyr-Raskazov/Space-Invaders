@@ -13,7 +13,6 @@ btnStartGame.addEventListener('click', () => {
 	createPlayer(playerSkin);
 	lifesCreate();
 	createEnemy();
-	createEnemy();
 	createAster();
 	startWindow.style.display = 'none';
 	optionsBar.style.visibility = 'visible';
@@ -24,6 +23,7 @@ btnRestartGame.addEventListener('click', () => {
 });
 
 const endGame = () => {
+	backgroundSound.pause();
 	player.style.display = 'none';
 	restartWindow.style.display = 'block';
 	optionsBar.style.visibility = 'hidden';
