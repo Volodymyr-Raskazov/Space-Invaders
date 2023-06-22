@@ -1,11 +1,10 @@
 let backgroundSound = document.getElementById('backgroundSound');
-backgroundSound.currentTime = 15;
+backgroundSound.currentTime = 25;
+backgroundSound.volume = 0.3;
 let soundControl = document.querySelector('.game-options__sound')
 let soundOn = document.getElementById('soundOn');
 let soundOff = document.getElementById('soundOff');
 let muted;
-// let shotSound = document.getElementById('shotSound');
-// let boomSound = document.getElementById('boomSound');
 
 soundControl.addEventListener('click', () => {
 	if (backgroundSound.paused == false) {
@@ -21,22 +20,14 @@ soundControl.addEventListener('click', () => {
 	}
 });
 
-const bgSound = () => {
-	backgroundSound.volume = 0.5;
-	backgroundSound.play();
-}
-
-const shotSound = () => {
-	let sound = new Audio('sound/shot.mp3');
-	sound.volume = 0.2;
+const playSound = (soundFile, volume, muted) => {
+	let sound = new Audio(soundFile);
+	sound.volume = volume;
 	sound.muted = muted;
 	sound.play();
 }
 
-const boomSound = () => {
-	let sound = new Audio('sound/boom.mp3');
-	sound.volume = 0.2;
-	sound.muted = muted;
-	sound.play();
-}
+// playSound('sound/background.mp3', 0.5, muted);
+// playSound('sound/shot.mp3', 0.2, muted);
+// playSound('sound/boom.mp3', 0.2, muted);
 // console.dir(backgroundSound);

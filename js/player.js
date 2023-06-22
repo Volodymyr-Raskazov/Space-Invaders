@@ -1,5 +1,6 @@
 let board = document.getElementById('app');
 let player = null;
+let lifesPlayer = 2;
 
 document.addEventListener('keydown', (ev) => {
 	switch (ev.code) {
@@ -26,23 +27,14 @@ const createPlayer = (playerSkin) => {
 
 const moveLeft = () => {
 	let pos = player.offsetLeft;
-	if (pos < 39) {
-		player.style.left = '0';
-	} else {
-		player.style.left = pos - 40 + 'px';
-	}
-
+	player.style.left = pos <= 39 ? '0' : pos - 40 + 'px';
 }
 
 const moveRight = () => {
 	let boardW = board.offsetWidth;
 	let playerW = player.offsetWidth;
 	let pos = player.offsetLeft;
-	if ((pos + playerW + 39) > boardW) {
-		player.style.left = (boardW - playerW) + 'px';
-	} else {
-		player.style.left = pos + 40 + 'px';
-	}
+	player.style.left = (pos + playerW + 39) > boardW ? (boardW - playerW) + 'px' : pos + 40 + 'px';
 }
 
 const shot = () => {
@@ -57,10 +49,10 @@ const shot = () => {
 	bulletLeft.style.left = (player.offsetLeft + player.offsetWidth / 2) - 22 + 'px';
 	bulletRight.style.left = (player.offsetLeft + player.offsetWidth / 2) + 18 + 'px';
 	if (playerSkin == 'skin-1') {
-		shotSound();
+		playSound('sound/shot.mp3', 0.1, muted);
 		board.appendChild(bullet);
 	} else {
-		shotSound();
+		playSound('sound/shot.mp3', 0.1, muted);
 		board.appendChild(bulletLeft);
 		board.appendChild(bulletRight);
 	}
@@ -93,11 +85,11 @@ const isHit = (bullet, bulletLeft, bulletRight) => {
 			if (vHit && hHit || vHitLeft && hHitLeft || vHitRight && hHitRight) {
 				target.classList.add('boom');
 				if (target.classList.contains('enemy')) {
-					boomSound();
+					playSound('sound/boom.mp3', 0.1, muted);
 					removeTarget(target);
 					createEnemy();
 				} else {
-					boomSound();
+					playSound('sound/boom.mp3', 0.1, muted);
 					removeTarget(target);
 					createAster();
 				}
@@ -106,4 +98,35 @@ const isHit = (bullet, bulletLeft, bulletRight) => {
 		}
 	}
 	return false;
+}
+
+const removeTarget = (target) => {
+	setTimeout(() => {
+		target.remove();
+	}, 600);
+}
+
+const removeAll = () => {
+	let targets = document.querySelectorAll('.enemy, .asteroid');
+	targets.forEach((el) => {
+		el.remove();
+	});
+}
+
+const lifeMinus = () => {
+	lifesPlayer--;
+	if (lifesPlayer <= 0) {
+		removeAll();
+		endGame();
+	}
+	lifesCreate();
+}
+
+const lifesCreate = () => {
+	let lifesBlock = document.getElementById('lifes');
+	lifesBlock.innerHTML = '';
+	for (let i = 0; i < lifesPlayer; i++) {
+		let span = document.createElement('span');
+		lifesBlock.appendChild(span);
+	}
 }

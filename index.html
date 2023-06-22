@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Space</title>
+	<title>Space Inviders</title>
 	<link href="https://fonts.cdnfonts.com/css/av-cosmos" rel="stylesheet">
 	<link href="https://fonts.cdnfonts.com/css/cosmos" rel="stylesheet">
 	<link rel="stylesheet" href="css/stars.css">
@@ -21,17 +21,11 @@
 	<audio id="backgroundSound" loop>
 		<source src="sound/background.mp3" type="audio/mpeg">
 	</audio>
-	<!-- <audio id="shotSound">
-		<source src="sound/shot.mp3" type="audio/mpeg">
-	</audio>
-	<audio id="boomSound">
-		<source src="sound/boom.mp3" type="audio/mpeg">
-	</audio> -->
 
 	<div class="container">
 		<div id="app">
 			<div class="game-options">
-				<div class="game-options__lifes" id="lifes">lifes</div>
+				<div class="game-options__lifes" id="lifes"></div>
 				<div class="game-options__score" id="score">score</div>
 				<div class="game-options__sound">
 					<button id="soundOn"></button>
@@ -56,10 +50,10 @@
 				</div>
 				<button id="btnStartGame" class="start-window__btn" style="--clr:#8A2BE2"><span>Start Game</span><i></i></button>
 			</div>
-			<!-- <div id="player" class="skin-1"></div>
-			<div class="bullet skin-1 left"></div>
-			<div class="bullet skin-1 right"></div> -->
-			<!-- <div class="enemy skin-1"></div> -->
+			<div class="end-window">
+				<div class="end-window__img"><img src="img/game-over.png" alt="game over"></div>
+				<button id="btnRestartGame" class="end-window__btn" style="--clr:#8A2BE2"><span>Restart</span><i></i></button>
+			</div>
 		</div>
 	</div>
 	<script src="js/script.js"></script>

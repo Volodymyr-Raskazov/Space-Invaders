@@ -14,17 +14,22 @@ const moveAster = (aster) => {
 	let timerID = setInterval(() => {
 		rotation = rotation += 5;
 		aster.style.transform = `rotate(${rotation}deg)`;
-		aster.style.top = `${aster.offsetTop + 5}px`;
+		aster.style.top = `${aster.offsetTop + 10}px`;
 		if (aster.offsetTop > board.offsetHeight) {
 			removeAster(aster);
 			clearInterval(timerID);
+			lifeMinus();
 		}
 	}, 50);
 }
 
 const removeAster = (aster) => {
 	setTimeout(() => {
-		aster.remove();
-		createAster();
+		if (lifesPlayer <= 0) {
+			removeAll();
+		} else {
+			aster.remove();
+			createAster();
+		}
 	}, 600);
 }

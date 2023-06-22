@@ -37,12 +37,6 @@ const floor10 = (val) => {
 wrapperW = floor10(wrapperW);
 wrapper.style.width = wrapperW + 'px';
 
-const removeTarget = (target) => {
-	setTimeout(() => {
-		target.remove();
-	}, 600);
-}
-
 const random = (min, max) => {
 	let rand = min - 0.5 + Math.random() * (max - min + 1);
 	return Math.round(rand);

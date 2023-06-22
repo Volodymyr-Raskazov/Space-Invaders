@@ -13,6 +13,7 @@
 	font-family: "AV Cosmos", sans-serif;
 	text-align: center;
 	box-shadow: rgba(71, 21, 117, 0.56) 0px 22px 70px 4px;
+	// display: none;
 
 	&__title {
 		background: #272822;
@@ -151,11 +152,4 @@
 	100% {
 		box-shadow: #27272c;
 	}
-}
-
-.skin-1 {
-}
-.skin-2 {
-}
-.skin-3 {
 }

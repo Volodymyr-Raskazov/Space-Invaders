@@ -2,18 +2,8 @@ let enemy;
 let enemySkin;
 
 const selEnemySkin = () => {
-	let n = random(1, 3);
-	switch (n) {
-		case 1:
-			enemySkin = 'skin-1';
-			break;
-		case 2:
-			enemySkin = 'skin-2';
-			break;
-		case 3:
-			enemySkin = 'skin-3';
-			break;
-	}
+	const skins = ['skin-1', 'skin-2', 'skin-3'];
+	enemySkin = skins[Math.floor(Math.random() * skins.length)];
 	return enemySkin;
 }
 
@@ -29,17 +19,22 @@ const createEnemy = () => {
 
 const moveEnemy = (enemy) => {
 	let timerID = setInterval(() => {
-		enemy.style.top = `${enemy.offsetTop + 5}px`;
+		enemy.style.top = `${enemy.offsetTop + 12.5}px`;
 		if (enemy.offsetTop > board.offsetHeight) {
 			removeEnemy(enemy);
 			clearInterval(timerID);
+			lifeMinus();
 		}
 	}, 50);
 }
 
 const removeEnemy = (enemy) => {
 	setTimeout(() => {
-		enemy.remove();
-		createEnemy();
+		if (lifesPlayer <= 0) {
+			removeAll();
+		} else {
+			enemy.remove();
+			createEnemy();
+		}
 	}, 600);
 }
