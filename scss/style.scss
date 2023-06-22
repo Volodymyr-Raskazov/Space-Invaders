@@ -124,6 +124,34 @@ html {
 	}
 }
 
+/*==================
+|   Planet style   |
+==================*/
+.planet {
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: 50% 0;
+	position: absolute;
+	top: -115px;
+	z-index: 9998;
+	transition: all 0.3s ease-out;
+	&.skin-1 {
+		height: 80px;
+		width: 80px;
+		background-image: url(../img/planet1.png);
+	}
+	&.skin-2 {
+		height: 60px;
+		width: 60px;
+		background-image: url(../img/planet2.png);
+	}
+	&.skin-3 {
+		height: 40px;
+		width: 40px;
+		background-image: url(../img/planet3.png);
+	}
+}
+
 /*====================
 |   Asteroid style   |
 ====================*/
@@ -329,7 +357,7 @@ html {
 			&#soundOff {
 				background-image: url(../img/svg/sound-off.svg);
 			}
-			&.hiden {
+			&.hidden {
 				display: none;
 			}
 		}

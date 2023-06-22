@@ -9,13 +9,13 @@ let muted;
 soundControl.addEventListener('click', () => {
 	if (backgroundSound.paused == false) {
 		backgroundSound.pause();
-		soundOff.classList.remove('hiden');
-		soundOn.classList.add('hiden');
+		soundOff.classList.remove('hidden');
+		soundOn.classList.add('hidden');
 		muted = true;
 	} else {
 		backgroundSound.play();
-		soundOn.classList.remove('hiden');
-		soundOff.classList.add('hiden');
+		soundOn.classList.remove('hidden');
+		soundOff.classList.add('hidden');
 		muted = false;
 	}
 });

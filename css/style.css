@@ -229,6 +229,36 @@ html {
   background-position: center;
 }
 
+/*==================
+|   Planet style   |
+==================*/
+.planet {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50% 0;
+  position: absolute;
+  top: -115px;
+  z-index: 9998;
+  -webkit-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.planet.skin-1 {
+  height: 80px;
+  width: 80px;
+  background-image: url(../img/planet1.png);
+}
+.planet.skin-2 {
+  height: 60px;
+  width: 60px;
+  background-image: url(../img/planet2.png);
+}
+.planet.skin-3 {
+  height: 40px;
+  width: 40px;
+  background-image: url(../img/planet3.png);
+}
+
 /*====================
 |   Asteroid style   |
 ====================*/
@@ -454,7 +484,7 @@ html {
 .game-options__sound button#soundOff {
   background-image: url(../img/svg/sound-off.svg);
 }
-.game-options__sound button.hiden {
+.game-options__sound button.hidden {
   display: none;
 }
 

@@ -1,6 +1,6 @@
 let board = document.getElementById('app');
 let player = null;
-let lifesPlayer = 2;
+let lifesPlayer = 5;
 
 document.addEventListener('keydown', (ev) => {
 	switch (ev.code) {
@@ -109,6 +109,7 @@ const removeTarget = (target) => {
 const removeAll = () => {
 	let targets = document.querySelectorAll('.enemy, .asteroid');
 	targets.forEach((el) => {
+		el.classList.add('boom');
 		el.remove();
 	});
 }

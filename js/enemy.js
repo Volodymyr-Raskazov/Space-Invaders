@@ -8,13 +8,14 @@ const selEnemySkin = () => {
 }
 
 const createEnemy = () => {
-	let enemyPosition = random(100, (board.offsetWidth - 100));
 	selEnemySkin();
 	enemy = document.createElement('div');
 	enemy.className = `enemy ${enemySkin}`;
-	enemy.style.left = `${enemyPosition}px`;
-	board.appendChild(enemy);
-	moveEnemy(enemy);
+	enemy.style.left = `${random(100, (board.offsetWidth - 100))}px`;
+	for (i = 0; i < random(1, 3); i++) {
+		board.appendChild(enemy);
+		moveEnemy(enemy);
+	}
 }
 
 const moveEnemy = (enemy) => {
