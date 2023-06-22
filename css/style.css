@@ -277,10 +277,20 @@ html {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
+}
+.game-options__sound > button {
   width: 40px;
   height: 40px;
-  background-image: url(../img/svg/sound-on-1.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+}
+.game-options__sound > button#soundOn {
+  background-image: url(../img/svg/sound-on-1.svg);
+}
+.game-options__sound > button#soundOff {
+  background-image: url(../img/svg/sound-off-1.svg);
+}
+.game-options__sound > button.hiden {
+  display: none;
 }

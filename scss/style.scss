@@ -164,11 +164,21 @@ html {
 
 	&__sound {
 		flex: 0 0 auto;
-		width: 40px;
-		height: 40px;
-		background-image: url(../img/svg/sound-on-1.svg);
-		background-repeat: no-repeat;
-		background-position: center;
-		background-size: contain;
+		> button {
+			width: 40px;
+			height: 40px;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+			&#soundOn {
+				background-image: url(../img/svg/sound-on-1.svg);
+			}
+			&#soundOff {
+				background-image: url(../img/svg/sound-off-1.svg);
+			}
+			&.hiden {
+				display: none;
+			}
+		}
 	}
 }
