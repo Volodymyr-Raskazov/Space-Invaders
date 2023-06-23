@@ -8,25 +8,34 @@ const selEnemySkin = () => {
 }
 
 const createEnemy = () => {
+	let n = random(1, 10);
 	selEnemySkin();
 	enemy = document.createElement('div');
 	enemy.className = `enemy ${enemySkin}`;
+	board.appendChild(enemy);
 	enemy.style.left = `${random(100, (board.offsetWidth - 100))}px`;
-	for (i = 0; i < random(1, 3); i++) {
-		board.appendChild(enemy);
-		moveEnemy(enemy);
+	moveEnemy(enemy);
+	if (n < 2) {
+		for (let i = 0; i < random(1, 2); i++) {
+			selEnemySkin();
+			enemy = document.createElement('div');
+			enemy.className = `enemy ${enemySkin}`;
+			board.appendChild(enemy);
+			enemy.style.left = `${random(100, (board.offsetWidth - 100))}px`;
+			moveEnemy(enemy);
+		}
 	}
 }
 
 const moveEnemy = (enemy) => {
 	let timerID = setInterval(() => {
-		enemy.style.top = `${enemy.offsetTop + 12.5}px`;
+		enemy.style.top = `${enemy.offsetTop + 10}px`;
 		if (enemy.offsetTop > board.offsetHeight) {
 			removeEnemy(enemy);
 			clearInterval(timerID);
 			lifeMinus();
 		}
-	}, 50);
+	}, 75);
 }
 
 const removeEnemy = (enemy) => {

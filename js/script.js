@@ -37,7 +37,6 @@ const floor10 = (val) => {
 wrapperW = floor10(wrapperW);
 wrapper.style.width = wrapperW + 'px';
 
-const random = (min, max) => {
-	let rand = min - 0.5 + Math.random() * (max - min + 1);
-	return Math.round(rand);
+function random(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
 }

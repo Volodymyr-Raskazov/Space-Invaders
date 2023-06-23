@@ -107,7 +107,7 @@ const removeTarget = (target) => {
 }
 
 const removeAll = () => {
-	let targets = document.querySelectorAll('.enemy, .asteroid');
+	let targets = document.querySelectorAll('.enemy, .asteroid, .planet, .bullet');
 	targets.forEach((el) => {
 		el.classList.add('boom');
 		el.remove();

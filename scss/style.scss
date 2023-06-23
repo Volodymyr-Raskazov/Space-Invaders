@@ -69,19 +69,21 @@ html {
 	border-radius: 6px/10px;
 	box-shadow: 0 0 10px, 0 0 2px inset;
 	z-index: 9999;
-	animation: glow 1.5s linear infinite;
 	&.skin-1 {
 		bottom: 135px;
+		animation: glow-violet 1.5s linear infinite;
 	}
 	&.skin-2 {
 		bottom: 125px;
+		animation: glow-lime 1.5s linear infinite;
 	}
 	&.skin-3 {
 		bottom: 120px;
+		animation: glow-cyan 1.5s linear infinite;
 	}
 }
 
-@keyframes glow {
+@keyframes glow-violet {
 	from {
 		color: violet;
 		box-shadow: 0 0 9px violet;
@@ -93,6 +95,36 @@ html {
 	to {
 		color: violet;
 		box-shadow: 0 0 9px violet;
+	}
+}
+
+@keyframes glow-lime {
+	from {
+		color: limegreen;
+		box-shadow: 0 0 9px limegreen;
+	}
+	50% {
+		color: limegreen;
+		box-shadow: 0 0 18px limegreen;
+	}
+	to {
+		color: limegreen;
+		box-shadow: 0 0 9px limegreen;
+	}
+}
+
+@keyframes glow-cyan {
+	from {
+		color: cyan;
+		box-shadow: 0 0 9px cyan;
+	}
+	50% {
+		color: cyan;
+		box-shadow: 0 0 18px cyan;
+	}
+	to {
+		color: cyan;
+		box-shadow: 0 0 9px cyan;
 	}
 }
 
@@ -119,7 +151,7 @@ html {
 		background-image: url(../img/enemy-3.png);
 	}
 	&.boom {
-		background-image: url(../img/boom.gif);
+		background-image: url(../img/boom-1.gif);
 		background-position: center;
 	}
 }
@@ -129,25 +161,25 @@ html {
 ==================*/
 .planet {
 	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: 50% 0;
+	background-size: cover;
+	background-position: 50% 50%;
 	position: absolute;
 	top: -115px;
 	z-index: 9998;
 	transition: all 0.3s ease-out;
 	&.skin-1 {
-		height: 80px;
-		width: 80px;
+		height: 200px;
+		width: 200px;
 		background-image: url(../img/planet1.png);
 	}
 	&.skin-2 {
-		height: 60px;
-		width: 60px;
+		height: 160px;
+		width: 160px;
 		background-image: url(../img/planet2.png);
 	}
 	&.skin-3 {
-		height: 40px;
-		width: 40px;
+		height: 120px;
+		width: 120px;
 		background-image: url(../img/planet3.png);
 	}
 }

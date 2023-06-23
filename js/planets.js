@@ -7,35 +7,47 @@ const selPlanetSkin = () => {
 	return planetSkin;
 }
 
-const createPlanets = () => {
+// const createPlanets = () => {
+// 	let i = 0;
+// 	while (i < random(1, 5)) {
+// 		createPlanet();
+// 		i++;
+// 	}
+// }
+
+const createPlanet = () => {
 	let i = 0;
-	while (i < random(1, 5)) {
-		createPlanet();
+	while (i < random(1, 2)) {
+		selPlanetSkin();
+		planet = document.createElement('div');
+		planet.className = `planet ${planetSkin}`;
+		planet.style.left = `${random(400, (board.offsetWidth - 400))}px`;
+		board.appendChild(planet);
+		movePlanet(planet);
 		i++;
 	}
 }
 
-const createPlanet = () => {
-	let planetPosition = random(100, (board.offsetWidth - 100));
-	selPlanetSkin();
-	planet = document.createElement('div');
-	planet.className = `planet ${planetSkin}`;
-	planet.style.left = `${planetPosition}px`;
-	board.appendChild(planet);
-	movePlanet(planet);
-}
-
 const movePlanet = (planet) => {
+	let speed;
+	if (planet.classList.contains('skin-1')) {
+		speed = 2;
+	} else if (planet.classList.contains('skin-2')) {
+		speed = 4;
+	} else if (planet.classList.contains('skin-3')) {
+		speed = 8;
+	}
 	let timerID = setInterval(() => {
-		planet.style.top = `${planet.offsetTop + 50}px`;
+		planet.style.top = `${planet.offsetTop + speed}px`;
 		if (planet.offsetTop > board.offsetHeight) {
-			removePlanet(planet);
 			clearInterval(timerID);
+			planet.remove();
+			createPlanet();
 		}
-	}, 50);
+	}, 100);
 }
 
 const removePlanet = (planet) => {
 	planet.remove();
-	createPlanets();
+	createPlanet();
 }

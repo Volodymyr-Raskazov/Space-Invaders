@@ -1,12 +1,15 @@
 let aster;
 
 const createAster = () => {
-	let asterPosition = random(100, (board.offsetWidth - 100));
-	aster = document.createElement('div');
-	aster.className = 'asteroid';
-	aster.style.left = `${asterPosition}px`;
-	board.appendChild(aster);
-	moveAster(aster);
+	let i = 0;
+	while (i < random(1, 2)) {
+		aster = document.createElement('div');
+		aster.className = 'asteroid';
+		aster.style.left = `${random(100, (board.offsetWidth - 100))}px`;
+		board.appendChild(aster);
+		moveAster(aster);
+		i++;
+	}
 }
 
 const moveAster = (aster) => {
@@ -20,7 +23,7 @@ const moveAster = (aster) => {
 			clearInterval(timerID);
 			lifeMinus();
 		}
-	}, 50);
+	}, 75);
 }
 
 const removeAster = (aster) => {

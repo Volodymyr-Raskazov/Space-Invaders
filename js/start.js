@@ -9,11 +9,11 @@ let playerSkin;
 
 btnStartGame.addEventListener('click', () => {
 	playerSkin = document.querySelector('.start-window__ships input[type=radio]:checked').value;
-	backgroundSound.play();
-	createPlanets();
+	// backgroundSound.play();
+	createPlanet();
 	createPlayer(playerSkin);
 	lifesCreate();
-	// createEnemy();
+	createEnemy();
 	// createAster();
 	startWindow.style.display = 'none';
 	optionsBar.style.visibility = 'visible';
