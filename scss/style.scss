@@ -151,19 +151,46 @@ html {
 		background-image: url(../img/enemy-3.png);
 	}
 	&.boom {
-		background-image: url(../img/boom-1.gif);
+		background-image: url(../img/boom.gif);
 		background-position: center;
 	}
-	&.bonus-life {
-		height: 40px;
-		width: 40px;
-		background-image: url(../img/svg/life.svg);
+	// &.bonus-life {
+	// 	background-image: url(../img/svg/life.svg);
+	// 	background-position: center;
+	// }
+	// &.bonus-boom {
+	// 	background-image: url(../img/bomb.png);
+	// 	background-position: center;
+	// }
+}
+
+.bonus-life {
+	position: absolute;
+	height: 100px;
+	width: 100px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-image: url(../img/svg/life.svg);
+	background-position: center;
+	z-index: 9998;
+	transition: all 0.3s ease-out;
+	&.boom {
+		background-image: url(../img/boom.gif);
 		background-position: center;
 	}
-	&.bonus-boom {
-		height: 40px;
-		width: 40px;
-		background-image: url(../img/bomb.png);
+}
+.bonus-boom {
+	position: absolute;
+	height: 100px;
+	width: 100px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-image: url(../img/bomb.png);
+	background-position: center;
+	z-index: 9998;
+	transition: all 0.3s ease-out;
+	&.boom {
+		background-image: url(../img/boom.gif);
 		background-position: center;
 	}
 }
@@ -177,7 +204,7 @@ html {
 	background-position: 50% 50%;
 	position: absolute;
 	top: -115px;
-	z-index: 9998;
+	z-index: 9990;
 	transition: all 0.3s ease-out;
 	&.skin-1 {
 		height: 200px;
@@ -195,8 +222,8 @@ html {
 		background-image: url(../img/planet3.png);
 	}
 	&.skin-4 {
-		height: 120px;
-		width: 120px;
+		height: 80px;
+		width: 80px;
 		background-image: url(../img/death-star.png);
 	}
 	&.boom {
@@ -220,18 +247,6 @@ html {
 	transition: all 0.3s ease-out;
 	&.boom {
 		background-image: url(../img/boom.gif);
-		background-position: center;
-	}
-	&.bonus-life {
-		height: 40px;
-		width: 40px;
-		background-image: url(../img/svg/life.svg);
-		background-position: center;
-	}
-	&.bonus-boom {
-		height: 40px;
-		width: 40px;
-		background-image: url(../img/bomb.png);
 		background-position: center;
 	}
 }

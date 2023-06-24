@@ -84,74 +84,49 @@ const isHit = (bullet, bulletLeft, bulletRight) => {
 			let hHitLeft = bulletLeft.offsetLeft > target.offsetLeft && bulletLeft.offsetLeft < (target.offsetLeft + target.offsetWidth);
 			let hHitRight = bulletRight.offsetLeft > target.offsetLeft && bulletRight.offsetLeft < (target.offsetLeft + target.offsetWidth);
 			if (vHit && hHit || vHitLeft && hHitLeft || vHitRight && hHitRight) {
-				target.classList.add('boom');
-				let enemyCount;
-				let asterCount;
+				let b = random(1, 20);
+				if (b == 1 && target.classList.contains('enemy')) {
+					target.classList.add('bonus-life');
+					bonusCreate(target);
+					// removeTarget(target);
+				} else if (b == 2 && target.classList.contains('enemy')) {
+					target.classList.add('bonus-boom');
+					bonusCreate(target);
+					// removeTarget(target);
+				}
 				switch (true) {
-					case target.classList.contains('enemy') && (!target.classList.contains('bonus-life') || !target.classList.contains('bonus-boom')):
+					case target.classList.contains('enemy'):
+						target.classList.add('boom');
 						playSound('sound/boom.mp3', 0.1, muted);
 						score = score + 10;
 						scoreCount();
 						removeTarget(target);
 						createEnemy();
 						break;
-					case target.classList.contains('asteroid') && (!target.classList.contains('bonus-life') || !target.classList.contains('bonus-boom')):
+					case target.classList.contains('asteroid'):
+						target.classList.add('boom');
 						playSound('sound/boom.mp3', 0.1, muted);
 						score = score + 5;
 						scoreCount();
 						removeTarget(target);
 						createAster();
 						break;
-					case target.classList.contains('enemy') && target.classList.contains('bonus-life'):
-						target.classList.remove('boom');
-						target.classList.remove('enemy');
+					case target.classList.contains('bonus-life'):
+						target.classList.add('boom');
 						playSound('sound/boom.mp3', 0.1, muted);
-						lifesPlayer = lifesPlayer++;
-						lifesCreate();
+						bonusAdd('life');
 						removeTarget(target);
 						break;
-					case target.classList.contains('asteroid') && target.classList.contains('bonus-life'):
-						target.classList.remove('boom');
-						target.classList.remove('asteroid');
+					case target.classList.contains('bonus-boom'):
+						target.classList.add('boom');
 						playSound('sound/boom.mp3', 0.1, muted);
-						lifesPlayer = lifesPlayer++;
-						lifesCreate();
+						bonusAdd('boom');
 						removeTarget(target);
-						break;
-					case target.classList.contains('enemy') && target.classList.contains('bonus-boom'):
-						target.classList.remove('boom');
-						target.classList.remove('enemy');
-						playSound('sound/boom.mp3', 0.1, muted);
-						enemyCount = document.querySelectorAll('.enemy');
-						asterCount = document.querySelectorAll('.asteroid');
-						score = score + enemyCount.length + asterCount.length;
-						scoreCount();
-						removeTarget(target);
-						break;
-					case target.classList.contains('asteroid') && target.classList.contains('bonus-boom'):
-						target.classList.remove('boom');
-						target.classList.remove('enemy');
-						playSound('sound/boom.mp3', 0.1, muted);
-						enemyCount = document.querySelectorAll('.enemy');
-						asterCount = document.querySelectorAll('.asteroid');
-						score = score + enemyCount.length + asterCount.length;
-						scoreCount();
-						removeTarget(target);
+						createEnemy();
+						createAster();
+						createPlanet();
 						break;
 				}
-				// if (target.classList.contains('enemy')) {
-				// 	playSound('sound/boom.mp3', 0.1, muted);
-				// 	score = score + 10;
-				// 	scoreCount();
-				// 	removeTarget(target);
-				// 	createEnemy();
-				// } else {
-				// 	playSound('sound/boom.mp3', 0.1, muted);
-				// 	score = score + 5;
-				// 	scoreCount();
-				// 	removeTarget(target);
-				// 	createAster();
-				// }
 				return true;
 			}
 		}
@@ -165,25 +140,30 @@ const removeTarget = (target) => {
 	}, 600);
 }
 
-const removeAll = () => {
-	let targets = document.querySelectorAll('.enemy, .asteroid, .planet');
-	let bullets = document.querySelectorAll('.bullet');
-	bullets.forEach((el) => {
+const removeAll = (bonus) => {
+	let t = document.querySelectorAll('.enemy, .asteroid, .planet');
+	let b = document.querySelectorAll('.bullet, .bonus-life, .bonus-boom');
+	b.forEach((el) => {
 		el.remove();
 	});
-	targets.forEach((el) => {
-		el.classList.add('boom');
-		setTimeout(() => {
+	if (bonus == true) {
+		t.forEach((el) => {
+			el.classList.add('boom');
+			setTimeout(() => {
+				el.remove();
+			}, 600);
+		});
+	} else {
+		t.forEach((el) => {
 			el.remove();
-		}, 600);
-	});
+		});
+	}
 }
-
 
 const lifeMinus = () => {
 	lifesPlayer--;
 	if (lifesPlayer <= 0) {
-		removeAll();
+		removeAll(false);
 		endGame();
 	}
 	lifesCreate();

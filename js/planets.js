@@ -32,16 +32,16 @@ const movePlanet = (planet) => {
 	let speed;
 	switch (true) {
 		case planet.classList.contains('skin-1'):
-			speed = 2;
+			speed = 4;
 			break;
 		case planet.classList.contains('skin-2'):
 			speed = 4;
 			break;
 		case planet.classList.contains('skin-3'):
-			speed = 8;
+			speed = 6;
 			break;
 		case planet.classList.contains('skin-4'):
-			speed = 12;
+			speed = 6;
 			break;
 	}
 	let timerID = setInterval(() => {
@@ -51,7 +51,7 @@ const movePlanet = (planet) => {
 			planet.remove();
 			createPlanet();
 		}
-	}, 100);
+	}, 200);
 }
 
 const removePlanet = (planet) => {
