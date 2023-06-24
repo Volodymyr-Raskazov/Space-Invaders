@@ -11,18 +11,30 @@ const createEnemy = () => {
 	let n = random(1, 10);
 	selEnemySkin();
 	enemy = document.createElement('div');
-	enemy.className = `enemy ${enemySkin}`;
+	let bonus;
+	let b = random(1, 20);
+	switch (b) {
+		case 1:
+			bonus = 'bonus-life';
+			break;
+		case 2:
+			bonus = 'bonus-boom';
+			break;
+	}
+	enemy.className = `enemy ${enemySkin} ${bonus}`;
 	board.appendChild(enemy);
-	enemy.style.left = `${random(100, (board.offsetWidth - 100))}px`;
+	enemy.style.left = `${random(200, (board.offsetWidth - 200))}px`;
 	moveEnemy(enemy);
-	if (n < 2) {
-		for (let i = 0; i < random(1, 2); i++) {
+	if (n <= 2) {
+		let i = 0;
+		while (i < 1) {
 			selEnemySkin();
 			enemy = document.createElement('div');
 			enemy.className = `enemy ${enemySkin}`;
 			board.appendChild(enemy);
-			enemy.style.left = `${random(100, (board.offsetWidth - 100))}px`;
+			enemy.style.left = `${random(200, (board.offsetWidth - 200))}px`;
 			moveEnemy(enemy);
+			i++;
 		}
 	}
 }
@@ -35,7 +47,7 @@ const moveEnemy = (enemy) => {
 			clearInterval(timerID);
 			lifeMinus();
 		}
-	}, 75);
+	}, 200);
 }
 
 const removeEnemy = (enemy) => {

@@ -300,6 +300,18 @@ html {
   background-image: url(../img/boom-1.gif);
   background-position: center;
 }
+.enemy.bonus-life {
+  height: 40px;
+  width: 40px;
+  background-image: url(../img/svg/life.svg);
+  background-position: center;
+}
+.enemy.bonus-boom {
+  height: 40px;
+  width: 40px;
+  background-image: url(../img/bomb.png);
+  background-position: center;
+}
 
 /*==================
 |   Planet style   |
@@ -330,6 +342,15 @@ html {
   width: 120px;
   background-image: url(../img/planet3.png);
 }
+.planet.skin-4 {
+  height: 120px;
+  width: 120px;
+  background-image: url(../img/death-star.png);
+}
+.planet.boom {
+  background-image: url(../img/boom.gif);
+  background-position: center;
+}
 
 /*====================
 |   Asteroid style   |
@@ -349,6 +370,18 @@ html {
 }
 .asteroid.boom {
   background-image: url(../img/boom.gif);
+  background-position: center;
+}
+.asteroid.bonus-life {
+  height: 40px;
+  width: 40px;
+  background-image: url(../img/svg/life.svg);
+  background-position: center;
+}
+.asteroid.bonus-boom {
+  height: 40px;
+  width: 40px;
+  background-image: url(../img/bomb.png);
   background-position: center;
 }
 
@@ -534,8 +567,9 @@ html {
   font-size: 20px;
 }
 .game-options__score span {
+  text-align: right;
   display: inline-block;
-  width: 40px;
+  width: 50px;
 }
 .game-options__sound {
   -webkit-box-flex: 0;
@@ -574,6 +608,7 @@ html {
   text-align: center;
   -webkit-box-shadow: rgba(71, 21, 117, 0.56) 0px 22px 70px 4px;
           box-shadow: rgba(71, 21, 117, 0.56) 0px 22px 70px 4px;
+  z-index: 9999;
   display: none;
 }
 .end-window__img {

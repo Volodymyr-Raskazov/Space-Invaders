@@ -154,6 +154,18 @@ html {
 		background-image: url(../img/boom-1.gif);
 		background-position: center;
 	}
+	&.bonus-life {
+		height: 40px;
+		width: 40px;
+		background-image: url(../img/svg/life.svg);
+		background-position: center;
+	}
+	&.bonus-boom {
+		height: 40px;
+		width: 40px;
+		background-image: url(../img/bomb.png);
+		background-position: center;
+	}
 }
 
 /*==================
@@ -182,6 +194,15 @@ html {
 		width: 120px;
 		background-image: url(../img/planet3.png);
 	}
+	&.skin-4 {
+		height: 120px;
+		width: 120px;
+		background-image: url(../img/death-star.png);
+	}
+	&.boom {
+		background-image: url(../img/boom.gif);
+		background-position: center;
+	}
 }
 
 /*====================
@@ -199,6 +220,18 @@ html {
 	transition: all 0.3s ease-out;
 	&.boom {
 		background-image: url(../img/boom.gif);
+		background-position: center;
+	}
+	&.bonus-life {
+		height: 40px;
+		width: 40px;
+		background-image: url(../img/svg/life.svg);
+		background-position: center;
+	}
+	&.bonus-boom {
+		height: 40px;
+		width: 40px;
+		background-image: url(../img/bomb.png);
 		background-position: center;
 	}
 }
@@ -369,8 +402,9 @@ html {
 		color: #fff;
 		font-size: 20px;
 		span {
+			text-align: right;
 			display: inline-block;
-			width: 40px;
+			width: 50px;
 		}
 	}
 
@@ -409,6 +443,7 @@ html {
 	background-color: #2d2d2d;
 	text-align: center;
 	box-shadow: rgba(71, 21, 117, 0.56) 0px 22px 70px 4px;
+	z-index: 9999;
 	display: none;
 	&__img {
 		position: relative;

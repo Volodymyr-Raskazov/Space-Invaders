@@ -38,5 +38,7 @@ wrapperW = floor10(wrapperW);
 wrapper.style.width = wrapperW + 'px';
 
 function random(min, max) {
-	return Math.floor(Math.random() * (max - min + 1)) + min;
+	// случайное число от min до (max+1)
+	let rand = min + Math.random() * (max + 1 - min);
+	return Math.floor(rand);
 }

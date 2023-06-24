@@ -1,14 +1,32 @@
 let aster;
 
 const createAster = () => {
-	let i = 0;
-	while (i < random(1, 2)) {
-		aster = document.createElement('div');
-		aster.className = 'asteroid';
-		aster.style.left = `${random(100, (board.offsetWidth - 100))}px`;
-		board.appendChild(aster);
-		moveAster(aster);
-		i++;
+	let n = random(1, 10);
+	aster = document.createElement('div');
+	let bonus;
+	let b = random(1, 20);
+	switch (b) {
+		case 1:
+			bonus = 'bonus-life';
+			break;
+		case 2:
+			bonus = 'bonus-boom';
+			break;
+	}
+	aster.className = `asteroid ${bonus}`;
+	aster.style.left = `${random(200, (board.offsetWidth - 200))}px`;
+	board.appendChild(aster);
+	moveAster(aster);
+	if (n <= 2) {
+		let i = 0;
+		while (i < 1) {
+			aster = document.createElement('div');
+			aster.className = 'asteroid';
+			aster.style.left = `${random(200, (board.offsetWidth - 200))}px`;
+			board.appendChild(aster);
+			moveAster(aster);
+			i++;
+		}
 	}
 }
 
@@ -23,7 +41,7 @@ const moveAster = (aster) => {
 			clearInterval(timerID);
 			lifeMinus();
 		}
-	}, 75);
+	}, 200);
 }
 
 const removeAster = (aster) => {

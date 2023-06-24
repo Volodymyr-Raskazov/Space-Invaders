@@ -2,7 +2,7 @@ let planet;
 let planetSkin;
 
 const selPlanetSkin = () => {
-	const skins = ['skin-1', 'skin-2', 'skin-3'];
+	const skins = ['skin-1', 'skin-2', 'skin-3', 'skin-4'];
 	planetSkin = skins[Math.floor(Math.random() * skins.length)];
 	return planetSkin;
 }
@@ -30,12 +30,19 @@ const createPlanet = () => {
 
 const movePlanet = (planet) => {
 	let speed;
-	if (planet.classList.contains('skin-1')) {
-		speed = 2;
-	} else if (planet.classList.contains('skin-2')) {
-		speed = 4;
-	} else if (planet.classList.contains('skin-3')) {
-		speed = 8;
+	switch (true) {
+		case planet.classList.contains('skin-1'):
+			speed = 2;
+			break;
+		case planet.classList.contains('skin-2'):
+			speed = 4;
+			break;
+		case planet.classList.contains('skin-3'):
+			speed = 8;
+			break;
+		case planet.classList.contains('skin-4'):
+			speed = 12;
+			break;
 	}
 	let timerID = setInterval(() => {
 		planet.style.top = `${planet.offsetTop + speed}px`;

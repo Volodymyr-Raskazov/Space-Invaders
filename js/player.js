@@ -1,6 +1,7 @@
 let board = document.getElementById('app');
 let player = null;
 let lifesPlayer = 5;
+let score = 0;
 
 document.addEventListener('keydown', (ev) => {
 	switch (ev.code) {
@@ -27,14 +28,14 @@ const createPlayer = (playerSkin) => {
 
 const moveLeft = () => {
 	let pos = player.offsetLeft;
-	player.style.left = pos <= 39 ? '0' : pos - 40 + 'px';
+	player.style.left = pos <= 49 ? '0' : pos - 50 + 'px';
 }
 
 const moveRight = () => {
 	let boardW = board.offsetWidth;
 	let playerW = player.offsetWidth;
 	let pos = player.offsetLeft;
-	player.style.left = (pos + playerW + 39) > boardW ? (boardW - playerW) + 'px' : pos + 40 + 'px';
+	player.style.left = (pos + playerW + 49) > boardW ? (boardW - playerW) + 'px' : pos + 50 + 'px';
 }
 
 const shot = () => {
@@ -64,14 +65,14 @@ const shot = () => {
 			bulletRight.remove();
 			clearInterval(timerID);
 		}
-		bullet.style.top = bullet.offsetTop - 20 + 'px';
-		bulletLeft.style.top = bulletLeft.offsetTop - 20 + 'px';
-		bulletRight.style.top = bulletRight.offsetTop - 20 + 'px';
+		bullet.style.top = bullet.offsetTop - 50 + 'px';
+		bulletLeft.style.top = bulletLeft.offsetTop - 50 + 'px';
+		bulletRight.style.top = bulletRight.offsetTop - 50 + 'px';
 	}, 50);
 }
 
 const isHit = (bullet, bulletLeft, bulletRight) => {
-	let targets = document.querySelectorAll('.enemy, .asteroid');
+	let targets = document.querySelectorAll('.enemy, .asteroid, .bonus-life, .bonus-boom');
 	let target;
 	for (let i = 0; i < targets.length; i++) {
 		target = targets[i];
@@ -84,15 +85,73 @@ const isHit = (bullet, bulletLeft, bulletRight) => {
 			let hHitRight = bulletRight.offsetLeft > target.offsetLeft && bulletRight.offsetLeft < (target.offsetLeft + target.offsetWidth);
 			if (vHit && hHit || vHitLeft && hHitLeft || vHitRight && hHitRight) {
 				target.classList.add('boom');
-				if (target.classList.contains('enemy')) {
-					playSound('sound/boom.mp3', 0.1, muted);
-					removeTarget(target);
-					createEnemy();
-				} else {
-					playSound('sound/boom.mp3', 0.1, muted);
-					removeTarget(target);
-					createAster();
+				let enemyCount;
+				let asterCount;
+				switch (true) {
+					case target.classList.contains('enemy') && (!target.classList.contains('bonus-life') || !target.classList.contains('bonus-boom')):
+						playSound('sound/boom.mp3', 0.1, muted);
+						score = score + 10;
+						scoreCount();
+						removeTarget(target);
+						createEnemy();
+						break;
+					case target.classList.contains('asteroid') && (!target.classList.contains('bonus-life') || !target.classList.contains('bonus-boom')):
+						playSound('sound/boom.mp3', 0.1, muted);
+						score = score + 5;
+						scoreCount();
+						removeTarget(target);
+						createAster();
+						break;
+					case target.classList.contains('enemy') && target.classList.contains('bonus-life'):
+						target.classList.remove('boom');
+						target.classList.remove('enemy');
+						playSound('sound/boom.mp3', 0.1, muted);
+						lifesPlayer = lifesPlayer++;
+						lifesCreate();
+						removeTarget(target);
+						break;
+					case target.classList.contains('asteroid') && target.classList.contains('bonus-life'):
+						target.classList.remove('boom');
+						target.classList.remove('asteroid');
+						playSound('sound/boom.mp3', 0.1, muted);
+						lifesPlayer = lifesPlayer++;
+						lifesCreate();
+						removeTarget(target);
+						break;
+					case target.classList.contains('enemy') && target.classList.contains('bonus-boom'):
+						target.classList.remove('boom');
+						target.classList.remove('enemy');
+						playSound('sound/boom.mp3', 0.1, muted);
+						enemyCount = document.querySelectorAll('.enemy');
+						asterCount = document.querySelectorAll('.asteroid');
+						score = score + enemyCount.length + asterCount.length;
+						scoreCount();
+						removeTarget(target);
+						break;
+					case target.classList.contains('asteroid') && target.classList.contains('bonus-boom'):
+						target.classList.remove('boom');
+						target.classList.remove('enemy');
+						playSound('sound/boom.mp3', 0.1, muted);
+						enemyCount = document.querySelectorAll('.enemy');
+						asterCount = document.querySelectorAll('.asteroid');
+						score = score + enemyCount.length + asterCount.length;
+						scoreCount();
+						removeTarget(target);
+						break;
 				}
+				// if (target.classList.contains('enemy')) {
+				// 	playSound('sound/boom.mp3', 0.1, muted);
+				// 	score = score + 10;
+				// 	scoreCount();
+				// 	removeTarget(target);
+				// 	createEnemy();
+				// } else {
+				// 	playSound('sound/boom.mp3', 0.1, muted);
+				// 	score = score + 5;
+				// 	scoreCount();
+				// 	removeTarget(target);
+				// 	createAster();
+				// }
 				return true;
 			}
 		}
@@ -107,12 +166,19 @@ const removeTarget = (target) => {
 }
 
 const removeAll = () => {
-	let targets = document.querySelectorAll('.enemy, .asteroid, .planet, .bullet');
-	targets.forEach((el) => {
-		el.classList.add('boom');
+	let targets = document.querySelectorAll('.enemy, .asteroid, .planet');
+	let bullets = document.querySelectorAll('.bullet');
+	bullets.forEach((el) => {
 		el.remove();
 	});
+	targets.forEach((el) => {
+		el.classList.add('boom');
+		setTimeout(() => {
+			el.remove();
+		}, 600);
+	});
 }
+
 
 const lifeMinus = () => {
 	lifesPlayer--;
@@ -130,4 +196,9 @@ const lifesCreate = () => {
 		let span = document.createElement('span');
 		lifesBlock.appendChild(span);
 	}
+}
+
+const scoreCount = () => {
+	let scoreBlock = document.querySelector('.game-options__score span');
+	scoreBlock.innerText = score;
 }
