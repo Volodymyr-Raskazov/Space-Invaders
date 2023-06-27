@@ -340,42 +340,106 @@ html {
 /*==================
 |   Planet style   |
 ==================*/
-.planet {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
+.solar-system {
+  position: relative;
+  width: 24em;
+  height: 24em;
+  z-index: 9995;
+}
+.solar-system .sun {
   position: absolute;
-  top: -115px;
-  z-index: 9990;
-  -webkit-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
-}
-.planet.skin-1 {
-  height: 200px;
-  width: 200px;
-  background-image: url(../img/planet1.png);
-}
-.planet.skin-2 {
-  height: 160px;
-  width: 160px;
-  background-image: url(../img/planet2.png);
-}
-.planet.skin-3 {
-  height: 120px;
-  width: 120px;
+  top: 50%;
+  left: 50%;
+  width: 3em;
+  height: 3em;
+  margin-top: -1.5em;
+  margin-left: -1.5em;
+  border-radius: 50%;
   background-image: url(../img/planet3.png);
-}
-.planet.skin-4 {
-  height: 80px;
-  width: 80px;
-  background-image: url(../img/death-star.png);
-}
-.planet.boom {
-  background-image: url(../img/boom.gif);
+  background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
+  z-index: 1;
+}
+.solar-system .planet {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2em;
+  height: 2em;
+  margin-top: -1em;
+  margin-left: -1em;
+  border-radius: 50%;
+}
+.solar-system .orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  -webkit-animation-name: orbit;
+          animation-name: orbit;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+.solar-system #firstPlanet.orbit {
+  width: 12em;
+  height: 12em;
+  margin-top: -6em;
+  margin-left: -6em;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+}
+.solar-system #firstPlanet .planet {
+  left: 0%;
+  top: 50%;
+  background-image: url(../img/planet1.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  z-index: 1;
+}
+.solar-system #secondPlanet.orbit {
+  width: 22em;
+  height: 22em;
+  margin-top: -11em;
+  margin-left: -11em;
+  -webkit-animation-duration: 12s;
+          animation-duration: 12s;
+}
+.solar-system #secondPlanet .planet {
+  left: 0%;
+  top: 50%;
+  background-image: url(../img/planet2.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  z-index: 1;
 }
 
+@-webkit-keyframes orbit {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(-360deg);
+            transform: rotateZ(-360deg);
+  }
+}
+
+@keyframes orbit {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(-360deg);
+            transform: rotateZ(-360deg);
+  }
+}
 /*====================
 |   Asteroid style   |
 ====================*/
