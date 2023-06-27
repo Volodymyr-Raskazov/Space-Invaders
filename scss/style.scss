@@ -233,7 +233,7 @@ html {
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		border: 1px solid rgba(255, 255, 255, 0.2);
+		border: 1px solid rgba(255, 255, 255, 0.1);
 		border-radius: 50%;
 		animation-name: orbit;
 		animation-iteration-count: infinite;
@@ -244,7 +244,7 @@ html {
 		height: 12em;
 		margin-top: -6em;
 		margin-left: -6em;
-		animation-duration: 8s;
+		animation-duration: 16s;
 	}
 	#firstPlanet .planet {
 		left: 0%;
@@ -260,7 +260,7 @@ html {
 		height: 22em;
 		margin-top: -11em;
 		margin-left: -11em;
-		animation-duration: 12s;
+		animation-duration: 20s;
 	}
 	#secondPlanet .planet {
 		left: 0%;
@@ -277,7 +277,7 @@ html {
 		transform: rotateZ(0deg);
 	}
 	100% {
-		transform: rotateZ(-360deg);
+		transform: rotateZ(360deg);
 	}
 }
 // .planet {

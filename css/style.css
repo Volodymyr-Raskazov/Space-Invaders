@@ -375,7 +375,7 @@ html {
   position: absolute;
   top: 50%;
   left: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   -webkit-animation-name: orbit;
           animation-name: orbit;
@@ -389,8 +389,8 @@ html {
   height: 12em;
   margin-top: -6em;
   margin-left: -6em;
-  -webkit-animation-duration: 8s;
-          animation-duration: 8s;
+  -webkit-animation-duration: 16s;
+          animation-duration: 16s;
 }
 .solar-system #firstPlanet .planet {
   left: 0%;
@@ -406,8 +406,8 @@ html {
   height: 22em;
   margin-top: -11em;
   margin-left: -11em;
-  -webkit-animation-duration: 12s;
-          animation-duration: 12s;
+  -webkit-animation-duration: 20s;
+          animation-duration: 20s;
 }
 .solar-system #secondPlanet .planet {
   left: 0%;
@@ -425,8 +425,8 @@ html {
             transform: rotateZ(0deg);
   }
   100% {
-    -webkit-transform: rotateZ(-360deg);
-            transform: rotateZ(-360deg);
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
   }
 }
 
@@ -436,8 +436,8 @@ html {
             transform: rotateZ(0deg);
   }
   100% {
-    -webkit-transform: rotateZ(-360deg);
-            transform: rotateZ(-360deg);
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
   }
 }
 /*====================
