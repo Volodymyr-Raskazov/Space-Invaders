@@ -84,7 +84,7 @@ const isHit = (bullet, bulletLeft, bulletRight) => {
 			let hHitLeft = bulletLeft.offsetLeft > target.offsetLeft && bulletLeft.offsetLeft < (target.offsetLeft + target.offsetWidth);
 			let hHitRight = bulletRight.offsetLeft > target.offsetLeft && bulletRight.offsetLeft < (target.offsetLeft + target.offsetWidth);
 			if (vHit && hHit || vHitLeft && hHitLeft || vHitRight && hHitRight) {
-				let b = random(1, 20);
+				let b = random(1, 3);
 				if (b == 1 && target.classList.contains('enemy')) {
 					target.classList.add('bonus-life');
 					bonusCreate(target);
@@ -124,7 +124,6 @@ const isHit = (bullet, bulletLeft, bulletRight) => {
 						removeTarget(target);
 						createEnemy();
 						createAster();
-						createPlanet();
 						break;
 				}
 				return true;
@@ -141,11 +140,8 @@ const removeTarget = (target) => {
 }
 
 const removeAll = (bonus) => {
-	let t = document.querySelectorAll('.enemy, .asteroid, .planet');
-	let b = document.querySelectorAll('.bullet, .bonus-life, .bonus-boom');
-	b.forEach((el) => {
-		el.remove();
-	});
+	let t = document.querySelectorAll('.enemy, .asteroid');
+	let b = document.querySelectorAll('.bullet, .bonus-life, .bonus-boom, .solar-system, .death-star');
 	if (bonus == true) {
 		t.forEach((el) => {
 			el.classList.add('boom');
@@ -154,6 +150,9 @@ const removeAll = (bonus) => {
 			}, 600);
 		});
 	} else {
+		b.forEach((el) => {
+			el.remove();
+		});
 		t.forEach((el) => {
 			el.remove();
 		});

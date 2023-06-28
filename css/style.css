@@ -303,8 +303,8 @@ html {
 
 .bonus-life {
   position: absolute;
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width: 50px;
   background-repeat: no-repeat;
   background-size: contain;
   background-image: url(../img/svg/life.svg);
@@ -321,8 +321,8 @@ html {
 
 .bonus-boom {
   position: absolute;
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width: 50px;
   background-repeat: no-repeat;
   background-size: contain;
   background-image: url(../img/bomb.png);
@@ -342,18 +342,22 @@ html {
 ==================*/
 .solar-system {
   position: relative;
-  width: 24em;
-  height: 24em;
+  top: -384px;
+  width: 384px;
+  height: 384px;
+  -webkit-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
   z-index: 9995;
 }
 .solar-system .sun {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 3em;
-  height: 3em;
-  margin-top: -1.5em;
-  margin-left: -1.5em;
+  width: 64px;
+  height: 64px;
+  margin-top: -32px;
+  margin-left: -32px;
   border-radius: 50%;
   background-image: url(../img/planet3.png);
   background-repeat: no-repeat;
@@ -365,18 +369,12 @@ html {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 2em;
-  height: 2em;
-  margin-top: -1em;
-  margin-left: -1em;
   border-radius: 50%;
 }
 .solar-system .orbit {
   position: absolute;
   top: 50%;
   left: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
   -webkit-animation-name: orbit;
           animation-name: orbit;
   -webkit-animation-iteration-count: infinite;
@@ -385,14 +383,42 @@ html {
           animation-timing-function: linear;
 }
 .solar-system #firstPlanet.orbit {
-  width: 12em;
-  height: 12em;
-  margin-top: -6em;
-  margin-left: -6em;
+  width: 100px;
+  height: 100px;
+  margin-top: -50px;
+  margin-left: -50px;
   -webkit-animation-duration: 16s;
           animation-duration: 16s;
 }
 .solar-system #firstPlanet .planet {
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  left: 0%;
+  top: 50%;
+  background-image: url(../img/planet4.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  -webkit-transform: rotate(-30deg);
+      -ms-transform: rotate(-30deg);
+          transform: rotate(-30deg);
+  z-index: 1;
+}
+.solar-system #secondPlanet.orbit {
+  width: 160px;
+  height: 160px;
+  margin-top: -90px;
+  margin-left: -90px;
+  -webkit-animation-duration: 12s;
+          animation-duration: 12s;
+}
+.solar-system #secondPlanet .planet {
+  width: 28px;
+  height: 28px;
+  margin-top: -14px;
+  margin-left: -14px;
   left: 0%;
   top: 50%;
   background-image: url(../img/planet1.png);
@@ -401,15 +427,43 @@ html {
   background-size: contain;
   z-index: 1;
 }
-.solar-system #secondPlanet.orbit {
-  width: 22em;
-  height: 22em;
-  margin-top: -11em;
-  margin-left: -11em;
-  -webkit-animation-duration: 20s;
-          animation-duration: 20s;
+.solar-system #thirdPlanet.orbit {
+  width: 240px;
+  height: 240px;
+  margin-top: -120px;
+  margin-left: -120px;
+  -webkit-animation-duration: 18s;
+          animation-duration: 18s;
 }
-.solar-system #secondPlanet .planet {
+.solar-system #thirdPlanet .planet {
+  width: 48px;
+  height: 48px;
+  margin-top: -24px;
+  margin-left: -24px;
+  left: 0%;
+  top: 50%;
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  background-image: url(../img/planet5.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  z-index: 1;
+}
+.solar-system #fourthPlanet.orbit {
+  width: 290px;
+  height: 290px;
+  margin-top: -145px;
+  margin-left: -145px;
+  -webkit-animation-duration: 22s;
+          animation-duration: 22s;
+}
+.solar-system #fourthPlanet .planet {
+  width: 26px;
+  height: 26px;
+  margin-top: -13px;
+  margin-left: -13px;
   left: 0%;
   top: 50%;
   background-image: url(../img/planet2.png);
@@ -440,6 +494,25 @@ html {
             transform: rotateZ(360deg);
   }
 }
+.death-star {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  position: absolute;
+  top: -150px;
+  height: 150px;
+  width: 150px;
+  background-image: url(../img/death-star.png);
+  z-index: 9990;
+  -webkit-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.death-star.boom {
+  background-image: url(../img/boom.gif);
+  background-position: center;
+}
+
 /*====================
 |   Asteroid style   |
 ====================*/
