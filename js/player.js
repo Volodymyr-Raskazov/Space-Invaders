@@ -35,8 +35,9 @@ const moveRight = () => {
 	let boardW = board.offsetWidth;
 	let playerW = player.offsetWidth;
 	let pos = player.offsetLeft;
-	player.style.left = (pos + playerW + 49) > boardW ? (boardW - playerW) + 'px' : pos + 50 + 'px';
-}
+	player.style.left =
+		pos + playerW + 49 > boardW ? boardW - playerW + "px" : pos + 50 + "px";
+};
 
 const shot = () => {
 	playerSkin = document.getElementById('player').className;
@@ -84,7 +85,7 @@ const isHit = (bullet, bulletLeft, bulletRight) => {
 			let hHitLeft = bulletLeft.offsetLeft > target.offsetLeft && bulletLeft.offsetLeft < (target.offsetLeft + target.offsetWidth);
 			let hHitRight = bulletRight.offsetLeft > target.offsetLeft && bulletRight.offsetLeft < (target.offsetLeft + target.offsetWidth);
 			if (vHit && hHit || vHitLeft && hHitLeft || vHitRight && hHitRight) {
-				let b = random(1, 3);
+				let b = random(1, 30);
 				if (b == 1 && target.classList.contains('enemy')) {
 					target.classList.add('bonus-life');
 					bonusCreate(target);
